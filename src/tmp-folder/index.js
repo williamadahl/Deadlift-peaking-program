@@ -1,5 +1,15 @@
 import React, {useState} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {data} from "../data/data";
+
+/* Pages */
+
+import Navbar from './Navbar';
+import Block1 from './Block1';
+import Block2 from './Block2';
+import Block3 from './Block3';
+import Final from './Final';
+
 
 const calculateWeight = (exercise,weight) => {
         console.log(exercise, weight)
@@ -21,6 +31,10 @@ const Index = () =>{
 
     return (
         <>
+            <Router>
+                <switch>
+                    <Route>
+
             <h2>Exercises</h2>
             <form onSubmit={handleSubmit} className='form'>
                 <input type='number' value={weight}  onChange ={(e) => setWeight(e.target.value)}/>
@@ -35,6 +49,9 @@ const Index = () =>{
                     </div>
                 );
             })}
+                    </Route>
+                </switch>
+            </Router>
         </>
     );
 };
