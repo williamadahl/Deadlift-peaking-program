@@ -31,26 +31,25 @@ const Index = () =>{
 
     return (
         <>
-            <Router>
-                <switch>
-                    <Route>
-
+            <h1>test</h1>
             <h2>Exercises</h2>
             <form onSubmit={handleSubmit} className='form'>
                 <input type='number' value={weight}  onChange ={(e) => setWeight(e.target.value)}/>
             </form>
-            {exercises.map((exercise) => {
-                const {id, fields} = exercise;
-                return (
-                    <div key = {id} className='item'>
-                        <h4>{fields.name}</h4>
-                        <p>Sets/Reps: {fields.main.sets[0]} x {fields.main.reps[0]}</p>
-                        <p>Weight: {calculateWeight(fields.percentile, weight)}</p>
-                    </div>
-                );
-            })}
+            <Router>
+                <Switch>
+
+                    <Route exact path='/block1'>
+                        <Block1 weight={weight}/>
                     </Route>
-                </switch>
+                    <Route path='/block2'>
+                        <Block2/>
+                    </Route>
+                    <Route path='/block3'>
+                        <Block3/>
+                    </Route>
+                </Switch>
+            <Navbar/>
             </Router>
         </>
     );
