@@ -18,11 +18,6 @@ const Index = () =>{
             setWeight(weight);
         }
     };
-    const handleChange = (e) => {
-        e.preventDefault();
-        const number = e.target.value;
-        setWeight(number);
-    }
 
     return (
         <>
