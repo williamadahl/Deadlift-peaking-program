@@ -4,7 +4,7 @@ import {data} from "../data/data";
 const calculateWeight = (exercise,weight) => {
         console.log(exercise, weight)
         const weightToLift = exercise * weight;
-        return weightToLift;
+        return weightToLift/100;
 };
 
 
@@ -18,13 +18,17 @@ const Index = () =>{
             setWeight(weight);
         }
     };
+    const handleChange = (e) => {
+        e.preventDefault();
+        const number = e.target.value;
+        setWeight(number);
+    }
 
     return (
         <>
             <h2>Exercises</h2>
             <form onSubmit={handleSubmit} className='form'>
-                <input type='number' value={weight} onChange={(e) =>setWeight(e.target.value)}/>
-                <button className='btn'>Submit</button>
+                <input type='number' value={weight}  onChange ={(e) => setWeight(e.target.value)}/>
             </form>
             {exercises.map((exercise) => {
                 const {id, fields} = exercise;
@@ -32,8 +36,7 @@ const Index = () =>{
                     <div key = {id} className='item'>
                         <h4>{fields.name}</h4>
                         <p>Sets/Reps: {fields.main.sets[0]} x {fields.main.reps[0]}</p>
-                        <p> Percentile: {fields.percentile}</p>
-                        <p>Weight: {calculateWeight(percentile, weight)}</p>
+                        <p>Weight: {calculateWeight(fields.percentile, weight)}</p>
                     </div>
                 );
             })}
