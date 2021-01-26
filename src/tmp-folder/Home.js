@@ -15,9 +15,9 @@ const Home = () => {
     return(
         <>
             <h3> Home page  {value}</h3>
-            <form className='form'>
-                <input type='number' value={value} onChange={setValue}/>
-            </form>
+            {/*<form className='form'>*/}
+            {/*    <input type='number' value={value} onChange={setValue}/>*/}
+            {/*</form>*/}
         </>
 
     )

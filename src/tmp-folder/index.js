@@ -39,7 +39,7 @@ const Index = () =>{
             <Router>
                 <Switch>
                     <Route exact path='/'>
-                        <Home value={value} onChangeValue={onChangeHandler}/>
+                        <Home/>
                     </Route>
                     <Route exact path='/block1'>
                         <Block1 weight={weight}/>

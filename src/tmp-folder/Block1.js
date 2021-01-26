@@ -3,18 +3,14 @@ import {Link} from 'react-router-dom';
 import {Route} from "react-router-dom";
 import {data} from '../data/data'
 
-const calculateWeight = (exercise,weight) => {
-    console.log(exercise, weight)
-    const weightToLift = exercise * weight;
-    return weightToLift/100;
-};
 
 const Block1 = ({weight}) => {
-    const [exercises, setExercises] = useState(data);
-    console.log(weight)
+    const [exercises, setExercises] = useState(data[0]);
+    console.log(exercises[0]);
 
     return(
         <>
+            <h1> Block 1 </h1>
             {/*{exercises.map((exercise) => {*/}
             {/*    const {id, fields} = exercise;*/}
             {/*    return (*/}
@@ -25,7 +21,6 @@ const Block1 = ({weight}) => {
             {/*        </div>*/}
             {/*    );*/}
             {/*})}*/}
-            <h1> Block 1 Value: {weight}</h1>
 
 
         </>
