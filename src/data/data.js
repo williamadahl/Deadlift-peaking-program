@@ -42,7 +42,42 @@ export const data = [[
             percentile: 50
         }
     },
-
+    {
+        id: 5,
+        fields:{
+            name: 'Close-grip pulldowns',
+            sets: 3,
+            reps: 10,
+            percentile: 0
+        }
+    },
+    {
+        id: 6,
+        fields: {
+            name: 'Reverse fly',
+            sets: 3,
+            reps: 12,
+            percentile: 0
+        }
+    },
+    {
+        id: 7,
+        fields: {
+            name: 'Single-arm row',
+            sets: 3,
+            reps: 12,
+            percentile: 0
+        }
+    },
+    {
+        id:8,
+        fields:{
+            name: 'Smith shrug',
+            sets: 3,
+            reps: 12,
+            percentile: 0
+        }
+    }
 ],
 [{
     test: 'value'
