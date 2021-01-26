@@ -9,6 +9,7 @@ import Block1 from './Block1';
 import Block2 from './Block2';
 import Block3 from './Block3';
 import Final from './Final';
+import Home from "./Home";
 
 
 const calculateWeight = (exercise,weight) => {
@@ -20,7 +21,8 @@ const calculateWeight = (exercise,weight) => {
 
 const Index = () =>{
     const [exercises, setExercises] = useState(data);
-    const [weight, setWeight] = useState(0);
+    const [weight, setWeight] = useState(1);
+    const [value, setValue] = useState(3);
 
     const handleSubmit =(e) =>{
         e.preventDefault();
@@ -28,17 +30,17 @@ const Index = () =>{
             setWeight(weight);
         }
     };
+    const onChangeHandler = (value) => {
+        setValue(value.target.value);
+    };
 
     return (
         <>
-            <h1>test</h1>
-            <h2>Exercises</h2>
-            <form onSubmit={handleSubmit} className='form'>
-                <input type='number' value={weight}  onChange ={(e) => setWeight(e.target.value)}/>
-            </form>
             <Router>
                 <Switch>
-
+                    <Route exact path='/'>
+                        <Home value={value} onChangeValue={onChangeHandler}/>
+                    </Route>
                     <Route exact path='/block1'>
                         <Block1 weight={weight}/>
                     </Route>

@@ -25,7 +25,8 @@ const Block1 = ({weight}) => {
             {/*        </div>*/}
             {/*    );*/}
             {/*})}*/}
-            <h1> Block 1</h1>
+            <h1> Block 1 Value: {weight}</h1>
+
 
         </>
     );
