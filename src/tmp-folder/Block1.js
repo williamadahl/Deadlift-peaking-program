@@ -6,6 +6,9 @@ import {data} from '../data/data'
 
 const Block1 = ({weight}) => {
     const [exercises, setExercises] = useState(data[0]);
+    console.log(weight);
+    const [sendData, setSendData] = useState('hello from block1')
+
 
     return(
         <>
