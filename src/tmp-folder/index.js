@@ -14,7 +14,7 @@ import Home from "./Home";
 
 
 const calculateWeight = (exercise,weight) => {
-        console.log(exercise, weight)
+        // console.log(exercise, weight)
         const weightToLift = exercise * weight;
         return weightToLift/100;
 };
@@ -24,7 +24,6 @@ const Index = () =>{
     const [exercises, setExercises] = useState(data);
     const [weight, setWeight] = useState(1);
     const [value, setValue] = useState(3);
-    const example = 3;
 
     const handleSubmit =(e) =>{
         e.preventDefault();
@@ -32,9 +31,9 @@ const Index = () =>{
             setWeight(weight);
         }
     };
-    const onChangeHandler = (value) => {
-        setValue(value.target.value);
-    };
+    // const onChangeHandler = (value) => {
+    //     setValue(value.target.value);
+    // };
 
     return (
         <>
@@ -44,7 +43,7 @@ const Index = () =>{
                         <Home/>
                     </Route>
                     <Route exact path='/block1'>
-                        <Block1 weight={example}/>
+                        <Block1 />
                     </Route>
                     <Route path='/block2'>
                         <Block2/>

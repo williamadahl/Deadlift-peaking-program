@@ -4,15 +4,18 @@ import {Route} from "react-router-dom";
 import {data} from '../data/data'
 
 
-const Block1 = ({weight}) => {
+const Block1 = (props) => {
     const [exercises, setExercises] = useState(data[0]);
-    console.log(weight);
-    const [sendData, setSendData] = useState('hello from block1')
 
 
     return(
         <>
             <h1> Block 1 </h1>
+            <input
+                type='text'
+                placeholder='hello from block1'
+                onChange={event => props.onChange(event.target.value)}
+            />
             {exercises.map((exercise) => {
                 const {id, fields} = exercise;
                 return (
