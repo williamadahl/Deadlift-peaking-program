@@ -5,7 +5,8 @@
  * percentages and previous weeks performance.
  * */
 
-export const data = [[
+export const data = [
+[
     {
         id:1,
         fields:{
@@ -134,6 +135,55 @@ export const data = [[
             percentile: 0
         }
     }
-]
+],
+    [
+        {
+            id:15,
+            fields:{
+                name: 'Deadlift warmup',
+                sets: 5,
+                reps: 2,
+                percentile: 0
+            }
+        },
+        {
+            id:16,
+            fields:{
+                name: 'Deadlift main',
+                sets: 1,
+                reps: 2,
+                percentile: 100
+            }
+        },
+        {
+            id:17,
+            fields:{
+                name: 'Paused Deadlift',
+                sets:3,
+                reps: 2,
+                percentile: 80
+            }
+        },
+        {
+            id:18,
+            fields:{
+                name: 'Stiff-Legged Deadlift',
+                sets: 3,
+                reps: 2,
+                percentile: 50
+            }
+        }
+    ],
+    [
+        {
+            id: 19,
+            fields: {
+                name: 'Deadlift',
+                sets: 1,
+                reps: 1,
+                percentile: 0
+            }
+        }
+    ]
 
 ]
