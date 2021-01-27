@@ -8,7 +8,7 @@ import Navbar from './Navbar';
 import Block1 from './Block1';
 import Block2 from './Block2';
 import Block3 from './Block3';
-import Final from './Final';
+import Block4 from './Block4';
 import Home from "./Home";
 
 
@@ -49,6 +49,9 @@ const Index = () =>{
                     </Route>
                     <Route path='/block3'>
                         <Block3/>
+                    </Route>
+                    <Route path='/maxAttempt'>
+                        <Block4/>
                     </Route>
                 </Switch>
             <Navbar/>

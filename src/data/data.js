@@ -122,7 +122,7 @@ export const data = [
         fields:{
             name: 'Close-grip pulldowns',
             sets: 2,
-            reps: 12,
+            reps: 10,
             percentile: 0
         }
     },
@@ -131,7 +131,7 @@ export const data = [
         fields: {
             name: 'Smith shrug',
             sets: 2,
-            reps: 12,
+            reps: 10,
             percentile: 0
         }
     }

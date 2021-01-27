@@ -17,7 +17,7 @@ const Navbar = () => {
                     <Link to='/block3'>Block 3</Link>
                 </li>
                 <li>
-                    <Link to='/final'> Max attempt</Link>
+                    <Link to='/maxAttempt'> Max attempt</Link>
                 </li>
             </ul>
         </nav>
