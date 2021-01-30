@@ -1,20 +1,21 @@
 import React, {useState} from 'react';
 import {data} from '../data/data'
+import Week from './Week';
+
+
 
 const Block2 = () => {
-    const [exerices, setExercises] = useState(data[1])
+    const [someShit, setSomeShit] = useState(3);
+
+    const getData = (value) =>{
+        console.log(value);
+    }
+
     return(
         <>
             <h1> Block 2 </h1>
-            {exerices.map((exercise) => {
-                const{id, fields} = exercise;
-                return(
-                    <div key={id} className='item'>
-                        <h4>{fields.name}</h4>
-                        <p>Sets/Reps: {fields.sets} x {fields.reps}</p>
-                    </div>
-                )
-            })}
+            <h4> Lick my ass {someShit} times, slave</h4>
+            <Week getNumberOfLicks={setSomeShit}/>
         </>
 
     )
