@@ -11,6 +11,7 @@ const calculateWeight = (percentile,weight) => {
 };
 
 const Block1 = (props) => {
+
     const [exercises, setExercises] = useState(data[0]);
     const [name, setName] = useState('');
     const [showWeekOne, setShowWeekOne] = useState(false);
@@ -19,8 +20,9 @@ const Block1 = (props) => {
     const [showWeekFour, setShowWeekFour] = useState(false);
     const [weight, setWeight] = useState(250); // Remember to update this weight to be 80% of input
     const [repNumber, setRepNumber] = useState(5);
-    console.log(weight);
+    const weightIncreasePerRepOverTarget = 2.5;
 
+    console.log(weight);
 
     return(
         <>

@@ -9,14 +9,22 @@ const calculateWeight = (percentile,weight) => {
 
 
 const Week = (props) => {
+    const weightIncreasePerRepOverTarget = 2.5;
+    const baseWeight = props.initialWeight + (weightIncreasePerRepOverTarget*props.repsOverTarget)
+    console.log('This is the base weight: ' + baseWeight);
 
-    const functionHandler = (timesLicked) => {
-        props.getNumberOfLicks(timesLicked);
+
+    // const baseWeight = props.weight +
+    const functionHandler = (repNumber) => {
+        props.getNumberOfReps(repNumber);
     }
+
+
     return (
         <>
-            <h5>Some exercises and shit</h5>
-            <h5>Something more </h5>
+            <h2>Week:{props.weekNumber}</h2>
+            <h5> Got this number of repsOverTarget: {props.targetReps}</h5>
+            <h5> Gives us total weight: </h5>
             <input
                input='number'
                onChange={(e) =>functionHandler(parseInt(e.target.value))}
