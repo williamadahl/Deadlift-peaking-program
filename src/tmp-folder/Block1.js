@@ -21,10 +21,6 @@ const Block1 = (props) => {
     const [repNumber, setRepNumber] = useState(5);
     console.log(weight);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-    }
 
     return(
         <>
@@ -52,14 +48,19 @@ const Block1 = (props) => {
                 </div>
                 );
             })}
-            <input
-                type='number'
-                value={repNumber}
-                onChange={(e) => setRepNumber(e.target.value)}
-            />
-            </>}
-
-        </>
+            <form className='form'>
+                <div className='form-control'>
+                    <label htmlFor='repNumber'>Enter number of reps: </label>
+                        <input
+                            type='number'
+                            value={repNumber}
+                            onChange={(e) => setRepNumber(parseInt(e.target.value))}
+                        />
+                </div>
+            </form>
+            </>
+            }
+</>
     );
 };
 export default Block1;
