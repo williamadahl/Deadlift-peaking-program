@@ -29,7 +29,7 @@ const Block1 = (props) => {
     return(
         <>
             <h1> Block 1 </h1>
-            <h4> How many reps you say? {repNumber}</h4>
+            <h4> Reps managed {repNumber}</h4>
             <button className='btn' onClick={()=>setShowWeekOne(!showWeekOne)}> Week 1</button>
             <button className='btn' onClick={()=>setShowWeekTwo(!showWeekTwo)}> Week 2</button>
             <button className='btn' onClick={()=>setShowWeekThree(!showWeekThree)}> Week 3</button>
