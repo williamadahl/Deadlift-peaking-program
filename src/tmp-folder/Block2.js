@@ -21,11 +21,19 @@ const Block2 = () => {
 
 
     const getNumberOfReps = (value) =>{
-        const repDifference = (value-targetReps)
-        setRepsOverTargetLastWeek(repDifference);
-        console.log('Parent got number ov reps over: ' + repDifference);
-        const newInitialWeight = (initialWeight + (repDifference*weightIncreasePerRepOverTarget));
-        setInitialWeight(newInitialWeight);
+        if(!isNaN(value)){
+            console.log('Recieved value: ' + value)
+            const repDifference = (value-targetReps)
+            setRepsOverTargetLastWeek(repDifference);
+            console.log('Parent got number ov reps over: ' + repDifference);
+            /* If you reach target weight, you add 2.5 kg as well */
+            if (repDifference === 0){
+                setInitialWeight(initialWeight+2.5);
+            }else {
+                const newInitialWeight = (initialWeight + (repDifference*weightIncreasePerRepOverTarget));
+                setInitialWeight(newInitialWeight);
+            }
+        }
     }
 
     return(
