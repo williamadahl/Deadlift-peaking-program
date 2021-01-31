@@ -3,14 +3,14 @@ import React from 'react';
 const calculateWeight = (percentile,weight) => {
     console.log(percentile, weight)
     return (percentile*weight) /100;
-    // const weightToLift = exercise * weight;
-    // return weightToLift/100;
 };
 
 
 const Week = (props) => {
     const weightIncreasePerRepOverTarget = 2.5;
-    const baseWeight = props.initialWeight + (weightIncreasePerRepOverTarget*props.repsOverTarget)
+    const baseWeight = props.initialWeight + (weightIncreasePerRepOverTarget*props.repsOverTargetLastWeek)
+    console.log('Target reps: ' + props.targetReps);
+    console.log('Reps over target last week: ' + props.repsOverTargetLastWeek);
     console.log('This is the base weight: ' + baseWeight);
 
 
@@ -35,7 +35,7 @@ const Week = (props) => {
                     <div key = {id} className='item'>
                         <h4>{fields.name}</h4>
                         <p>Sets/Reps: {fields.sets} x {fields.reps}</p>
-                        <p>Weight: {calculateWeight(fields.percentile, props.weight)}</p>
+                        <p>Weight: {calculateWeight(fields.percentile, baseWeight)}</p>
                     </div>
                 );
             })}

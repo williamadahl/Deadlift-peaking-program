@@ -12,16 +12,20 @@ const Block2 = () => {
     const [showWeekFour, setShowWeekFour] = useState(false);
 
     const [exercises, setExercises] = useState(data[1]);
-    const [repsOverTarget, setRepsOverTarget] = useState(0);
-    const [targetReps, setTargetReps] = useState(3);
     const [initialWeight, setInitialWeight] = useState(250);
+    const weightIncreasePerRepOverTarget = 2.5;
 
+    const [repsOverTargetLastWeek, setRepsOverTargetLastWeek] = useState(0);
+    const [targetReps, setTargetReps] = useState(3);
 
 
 
     const getNumberOfReps = (value) =>{
-        setRepsOverTarget(value);
-        console.log(value);
+        const repDifference = (value-targetReps)
+        setRepsOverTargetLastWeek(repDifference);
+        console.log('Parent got number ov reps over: ' + repDifference);
+        const newInitialWeight = (initialWeight + (repDifference*weightIncreasePerRepOverTarget));
+        setInitialWeight(newInitialWeight);
     }
 
     return(
@@ -34,12 +38,12 @@ const Block2 = () => {
             <button className='btn' onClick={()=>setShowWeekFour(!showWeekFour)}> Week 4</button>
             {showWeekOne &&
             <Week
-                getNumberOfReps={setTargetReps}
+                getNumberOfReps={getNumberOfReps}
                 exercises={exercises}
                 initialWeight={initialWeight}
                 weekNumber={1}
-                repsOverTarget={targetReps}
-
+                targetReps={targetReps}
+                repsOverTargetLastWeek={repsOverTargetLastWeek}
             />
             }
 
