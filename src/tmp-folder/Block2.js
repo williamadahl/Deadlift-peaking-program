@@ -18,6 +18,9 @@ const Block2 = () => {
     const [repsOverTargetLastWeek, setRepsOverTargetLastWeek] = useState(0);
     const [targetReps, setTargetReps] = useState(3);
 
+    console.log('I rendered');
+    console.log('Show week1:' + showWeekOne)
+    console.log('Show week2:' + showWeekTwo)
 
 
     const getNumberOfReps = (value) =>{
@@ -41,14 +44,14 @@ const Block2 = () => {
             <h1> Block 2 </h1>
             <h4> Lick my ass {targetReps} times, slave</h4>
             <button className='btn' onClick={
-                ()=>setShowWeekOne(!showWeekOne) && setShowWeekTwo(false)
+                ()=>setShowWeekOne(!showWeekOne)
             }> Week 1</button>
             <button className='btn' onClick={
-                ()=>setShowWeekTwo(!showWeekTwo) && setShowWeekOne(false)
+                ()=>setShowWeekTwo(!showWeekTwo) && setShowWeekOne(!showWeekOne)
             }> Week 2</button>
             <button className='btn' onClick={()=>setShowWeekThree(!showWeekThree)}> Week 3</button>
             <button className='btn' onClick={()=>setShowWeekFour(!showWeekFour)}> Week 4</button>
-            {(showWeekOne ) &&
+            { (showWeekOne && !showWeekTwo)   &&
             <Week
                 getNumberOfReps={getNumberOfReps}
                 exercises={exercises}
@@ -58,7 +61,7 @@ const Block2 = () => {
                 repsOverTargetLastWeek={repsOverTargetLastWeek}
             />
             }
-            {(showWeekTwo ) &&
+            { showWeekTwo &&
             <Week
                 getNumberOfReps={getNumberOfReps}
                 exercises={exercises}
