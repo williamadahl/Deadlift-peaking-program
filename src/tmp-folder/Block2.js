@@ -40,11 +40,15 @@ const Block2 = () => {
         <>
             <h1> Block 2 </h1>
             <h4> Lick my ass {targetReps} times, slave</h4>
-            <button className='btn' onClick={()=>setShowWeekOne(!showWeekOne)}> Week 1</button>
-            <button className='btn' onClick={()=>setShowWeekTwo(!showWeekTwo)}> Week 2</button>
+            <button className='btn' onClick={
+                ()=>setShowWeekOne(!showWeekOne) && setShowWeekTwo(false)
+            }> Week 1</button>
+            <button className='btn' onClick={
+                ()=>setShowWeekTwo(!showWeekTwo) && setShowWeekOne(false)
+            }> Week 2</button>
             <button className='btn' onClick={()=>setShowWeekThree(!showWeekThree)}> Week 3</button>
             <button className='btn' onClick={()=>setShowWeekFour(!showWeekFour)}> Week 4</button>
-            {showWeekOne &&
+            {(showWeekOne ) &&
             <Week
                 getNumberOfReps={getNumberOfReps}
                 exercises={exercises}
@@ -54,6 +58,17 @@ const Block2 = () => {
                 repsOverTargetLastWeek={repsOverTargetLastWeek}
             />
             }
+            {(showWeekTwo ) &&
+            <Week
+                getNumberOfReps={getNumberOfReps}
+                exercises={exercises}
+                initialWeight={initialWeight}
+                weekNumber={2}
+                targetReps={targetReps}
+                repsOverTargetLastWeek={repsOverTargetLastWeek}
+            />
+            }
+
 
         </>
 
