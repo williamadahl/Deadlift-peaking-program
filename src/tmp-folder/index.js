@@ -51,7 +51,7 @@ const Index = () =>{
                     <Route path='/block3'>
                         <Block3/>
                     </Route>
-                    <Route path='/maxAttempt'>
+                    <Route path='/block4'>
                         <Block4/>
                     </Route>
                 </Switch>
