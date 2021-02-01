@@ -6,6 +6,7 @@ import Week from './Week';
 
 const Block2 = () => {
 
+    const [weekNumber, setWeekNumber] = useState(0);
     const [showWeekOne, setShowWeekOne] = useState(false);
     const [showWeekTwo, setShowWeekTwo] = useState(false);
     const [showWeekThree, setShowWeekThree] = useState(false);
@@ -21,6 +22,7 @@ const Block2 = () => {
     console.log('I rendered');
     console.log('Show week1:' + showWeekOne)
     console.log('Show week2:' + showWeekTwo)
+    console.log('This is the week number: '+ weekNumber)
 
 
     const getNumberOfReps = (value) =>{
@@ -49,8 +51,13 @@ const Block2 = () => {
             <button className='btn' onClick={
                 ()=>(setShowWeekTwo(!showWeekTwo) && setShowWeekOne(false))
             }> Week 2</button>
-            <button className='btn' onClick={()=>setShowWeekThree(!showWeekThree)}> Week 3</button>
-            <button className='btn' onClick={()=>setShowWeekFour(!showWeekFour)}> Week 4</button>
+            <button className='btn' onClick={
+                ()=>setWeekNumber(3)
+            }> Week 3</button>
+            <button className='btn' onClick={
+                ()=>setWeekNumber(4)
+            }>Week 4</button>
+
             { (showWeekOne && !showWeekTwo)   &&
             <Week
                 getNumberOfReps={getNumberOfReps}
@@ -61,7 +68,7 @@ const Block2 = () => {
                 repsOverTargetLastWeek={repsOverTargetLastWeek}
             />
             }
-            { showWeekTwo &&
+            { (showWeekTwo && !showWeekOne) &&
             <Week
                 getNumberOfReps={getNumberOfReps}
                 exercises={exercises}
@@ -71,6 +78,14 @@ const Block2 = () => {
                 repsOverTargetLastWeek={repsOverTargetLastWeek}
             />
             }
+            { (weekNumber === 3) &&
+            <div> Week 3 pressed</div>
+            }
+
+            { (weekNumber === 4) &&
+            <div> Week 4 pressed</div>
+            }
+
 
 
         </>
