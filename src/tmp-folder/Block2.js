@@ -19,12 +19,6 @@ const Block2 = () => {
     const [repsOverTargetLastWeek, setRepsOverTargetLastWeek] = useState(0);
     const [targetReps, setTargetReps] = useState(3);
 
-    console.log('I rendered');
-    console.log('Show week1:' + showWeekOne)
-    console.log('Show week2:' + showWeekTwo)
-    console.log('This is the week number: '+ weekNumber)
-
-
     const getNumberOfReps = (value) =>{
         if(!isNaN(value)){
             console.log('Recieved value: ' + value)
@@ -45,45 +39,51 @@ const Block2 = () => {
         <>
             <h1> Block 2 </h1>
             <h4> Tarjet reps : {targetReps} </h4>
-            <button className='btn' onClick={
-                ()=>setShowWeekOne(!showWeekOne)
-            }> Week 1</button>
-            <button className='btn' onClick={
-                ()=>(setShowWeekTwo(!showWeekTwo) && setShowWeekOne(false))
-            }> Week 2</button>
-            <button className='btn' onClick={
-                ()=>setWeekNumber(3)
-            }> Week 3</button>
-            <button className='btn' onClick={
-                ()=>setWeekNumber(4)
-            }>Week 4</button>
+            <button className='btn' onClick={()=>setWeekNumber(1)}> Week 1</button>
+            <button className='btn' onClick={()=>setWeekNumber(2)}> Week 2</button>
+            <button className='btn' onClick={()=>setWeekNumber(3)}> Week 3</button>
+            <button className='btn' onClick={()=>setWeekNumber(4)}>Week 4</button>
 
-            { (showWeekOne && !showWeekTwo)   &&
+            { (weekNumber === 1)   &&
             <Week
                 getNumberOfReps={getNumberOfReps}
                 exercises={exercises}
                 initialWeight={initialWeight}
-                weekNumber={1}
+                weekNumber={weekNumber}
                 targetReps={targetReps}
                 repsOverTargetLastWeek={repsOverTargetLastWeek}
             />
             }
-            { (showWeekTwo && !showWeekOne) &&
+            { (weekNumber === 2) &&
             <Week
                 getNumberOfReps={getNumberOfReps}
                 exercises={exercises}
                 initialWeight={initialWeight}
-                weekNumber={2}
+                weekNumber={weekNumber}
                 targetReps={targetReps}
                 repsOverTargetLastWeek={repsOverTargetLastWeek}
             />
             }
             { (weekNumber === 3) &&
-            <div> Week 3 pressed</div>
+                <Week
+                getNumberOfReps={getNumberOfReps}
+                exercises={exercises}
+                initialWeight={initialWeight}
+                weekNumber={weekNumber}
+                targetReps={targetReps}
+                repsOverTargetLastWeek={repsOverTargetLastWeek}
+                />
             }
 
             { (weekNumber === 4) &&
-            <div> Week 4 pressed</div>
+            <Week
+                getNumberOfReps={getNumberOfReps}
+                exercises={exercises}
+                initialWeight={initialWeight}
+                weekNumber={weekNumber}
+                targetReps={targetReps}
+                repsOverTargetLastWeek={repsOverTargetLastWeek}
+            />
             }
 
 
