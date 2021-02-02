@@ -2,22 +2,21 @@ import React, {useState} from 'react';
 import {data} from '../data/data'
 import Week from './Week';
 
-
+/*
+* TODO:
+*  Input from user must be checked after a delay so for dual-digit reps are not calculated twice:
+*  Example: 12 will be first 1 then 12 => results in wrong calculation
+* */
 
 const Block2 = () => {
 
     const [weekNumber, setWeekNumber] = useState(0);
-    const [showWeekOne, setShowWeekOne] = useState(false);
-    const [showWeekTwo, setShowWeekTwo] = useState(false);
-    const [showWeekThree, setShowWeekThree] = useState(false);
-    const [showWeekFour, setShowWeekFour] = useState(false);
-
-    const [exercises, setExercises] = useState(data[1]);
+    const [exercises] = useState(data[1]);
     const [initialWeight, setInitialWeight] = useState(250);
     const weightIncreasePerRepOverTarget = 2.5;
 
     const [repsOverTargetLastWeek, setRepsOverTargetLastWeek] = useState(0);
-    const [targetReps, setTargetReps] = useState(3);
+    const [targetReps] = useState(3);
 
     const getNumberOfReps = (value) =>{
         if(!isNaN(value)){

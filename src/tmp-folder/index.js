@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
@@ -17,7 +17,7 @@ import reducer from '../store/reducer'
 const store = createStore(reducer);
 
 const Index = () =>{
-    console.log(store.newState)
+    console.log(store.getState())
 
     return (
         <Provider store={store}>

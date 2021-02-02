@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
-const Modal = ({modalContent, closeModal}) => {
+const Modal = ({modalContent}) => {
 
     return (
         <>

@@ -1,6 +1,6 @@
 const initialState = {
-    weight: 69
-};  
+    globalWeight: 69
+};
 
 const reducer = (state = initialState, action) =>{
     const newState = {...state}
