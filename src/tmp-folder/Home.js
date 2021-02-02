@@ -5,16 +5,6 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 
 const Home = () => {
-    // const [onChangeValue, setOnChangeValue] = useState(0);
-    // const [message, setMessage] = useState('I am home');
-
-
-    // const handleSubmit =(e) =>{
-    //     e.preventDefault();
-        // if(value){
-        //     setValue(value);
-        // }
-    // };
 
     return(
         <>

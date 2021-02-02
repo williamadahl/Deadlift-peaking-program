@@ -11,7 +11,8 @@ import Block4 from './Block4';
 import Home from './Home';
 import Modal from './Modal';
 
-import {reducer} from './reducer';
+import {Provider} from 'react-redux'
+import {createStore} from "redux";
 
 const defaultState = {
     isModalOpen: true,
@@ -20,11 +21,12 @@ const defaultState = {
 
 
 const Index = () =>{
-    const [state, dispatch] = useReducer(reducer, defaultState);
+    // const navigate = useNavigate();
+    // import { useNavigate } from "@reach/router"
+    const testValue= 'hello from index'
 
     return (
         <>
-            {state.isModalOpen && (<Modal modalContent={state.modalContent} /> )}
             <Router>
                 <Switch>
                     <Route exact path='/'>
