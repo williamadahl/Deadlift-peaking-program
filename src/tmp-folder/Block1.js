@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Route} from "react-router-dom";
 import {data} from '../data/data'
+import {connect} from 'react-redux';
 
 const calculateWeight = (percentile,weight) => {
     console.log(percentile, weight)
@@ -21,12 +22,12 @@ const Block1 = (props) => {
     const [weight, setWeight] = useState(250); // Remember to update this weight to be 80% of input
     const [repNumber, setRepNumber] = useState(5);
     const weightIncreasePerRepOverTarget = 2.5;
-
     console.log(weight);
 
     return(
         <>
             <h1> Block 1 </h1>
+            <h5> Global weight: {props.weight}</h5>
             <h4> Reps managed {repNumber}</h4>
             <button className='btn' onClick={()=>setShowWeekOne(!showWeekOne)}> Week 1</button>
             <button className='btn' onClick={()=>setShowWeekTwo(!showWeekTwo)}> Week 2</button>
@@ -65,4 +66,9 @@ const Block1 = (props) => {
 </>
     );
 };
-export default Block1;
+
+
+const mapStateToProps = state => ({
+    weight: state.weight
+})
+export default connect(mapStateToProps)(Block1);

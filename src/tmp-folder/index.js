@@ -9,23 +9,18 @@ import Block2 from './Block2';
 import Block3 from './Block3';
 import Block4 from './Block4';
 import Home from './Home';
-import Modal from './Modal';
 
 import {Provider} from 'react-redux'
 import {createStore} from "redux";
+import reducer from '../store/reducer'
 
-const defaultState = {
-    isModalOpen: true,
-    modalContent: 'hello from modal'
-}
-
+const store = createStore(reducer);
 
 const Index = () =>{
-    // const navigate = useNavigate();
-    // import { useNavigate } from "@reach/router"
-    const testValue= 'hello from index'
+    console.log(store.newState)
 
     return (
+        <Provider store={store}>
         <>
             <Router>
                 <Switch>
@@ -48,6 +43,7 @@ const Index = () =>{
             <Navbar/>
             </Router>
         </>
+        </Provider>
     );
 };
 export default Index;

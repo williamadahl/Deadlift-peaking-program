@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import Block1 from "./Block1";
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
-
-const Home = () => {
+const Home = (props) => {
 
     return(
         <>
             <h3> Home page </h3>
+            <h5> Global weight: {props.weight}</h5>
             <Link to='/block1'>
                 <button className='btn'>Block 1</button>
             </Link>
@@ -33,4 +34,7 @@ const Home = () => {
 
     )
 };
-export default Home;
+const mapStateToProps = state => ({
+    weight: state.weight
+})
+export default connect(mapStateToProps)(Home);
