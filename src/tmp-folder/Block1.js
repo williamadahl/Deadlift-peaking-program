@@ -31,12 +31,6 @@ const Block1 = (props) => {
             <button className='btn' onClick={()=>setShowWeekFour(!showWeekFour)}> Week 4</button>
             {showWeekOne && <>
                 <h2>Week 1</h2>
-            {/*<input*/}
-            {/*    type='text'*/}
-            {/*    placeholder='hello from block1'*/}
-            {/*    onChange={event => props.onChange(event.target.value) && setName(event.target.value)}*/}
-            {/*    // onChange={setName('test')}*/}
-            {/*/>*/}
             {exercises.map((exercise) => {
                 const {id, fields} = exercise;
                 return (
