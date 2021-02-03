@@ -7,7 +7,7 @@ const reducer = (state = initialState, action) =>{
 
     switch (action.type) {
         case 'SET_WEIGHT':
-            newState.globalWeight++;
+            newState.globalWeight+=action.value;
             break;
     }
     return newState;

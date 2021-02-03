@@ -39,7 +39,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        onSetWeight: () => dispatch({type:'SET_WEIGHT'})
+        onSetWeight: () => dispatch({type:'SET_WEIGHT', value:2})
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
