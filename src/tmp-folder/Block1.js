@@ -26,7 +26,7 @@ const Block1 = (props) => {
             <h1> Block 1 </h1>
             <h5> Global weight: {props.globalWeight}</h5>
             <h4> Reps managed {repNumber}</h4>
-            <button className='btn' onClick={props.onSetWeight(someWeight)}>200 kg </button>
+            <button className='btn' onClick={props.onSetWeight}>200 kg </button>
             <button className='btn' onClick={()=>setShowWeekOne(!showWeekOne)}> Week 1</button>
             <button className='btn' onClick={()=>setShowWeekTwo(!showWeekTwo)}> Week 2</button>
             <button className='btn' onClick={()=>setShowWeekThree(!showWeekThree)}> Week 3</button>
