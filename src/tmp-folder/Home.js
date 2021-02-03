@@ -8,6 +8,7 @@ const Home = (props) => {
         <>
             <h3> Home page </h3>
             <h5> Global weight: {props.globalWeight}</h5>
+            <button className='btn' onClick={props.onSetWeight}> Weight up</button>
             <Link to='/block1'>
                 <button className='btn'>Block 1</button>
             </Link>
@@ -32,7 +33,13 @@ const Home = (props) => {
 
     )
 };
-const mapStateToProps = state => ({
-    weight: state.weight
+const mapStateToProps = (state) => ({
+    globalWeight: state.globalWeight
 })
-export default connect(mapStateToProps)(Home);
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        onSetWeight: () => dispatch({type:'SET_WEIGHT'})
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -4,6 +4,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) =>{
     const newState = {...state}
-    return newState
+
+    switch (action.type) {
+        case 'SET_WEIGHT':
+            newState.globalWeight++;
+            break;
+    }
+    return newState;
 }
 export default reducer;
