@@ -1,10 +1,11 @@
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import React from "react";
+import React, {useState} from "react";
 // import store from '../store/store'
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
-import store from "../store/store";
+import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
+// import store from "../store/store";
 
 
 const Home = (props) => {
@@ -12,8 +13,19 @@ const Home = (props) => {
     const dispatch = useDispatch()
     const someShit = state => state.globalWeight;
 
+    const [writtenWeight, setWrittenWeight] = useState(0);
+
     const storeWeight = useSelector(someShit)
 
+    const handleChange = e => setWrittenWeight(e.target.value)
+
+    const handleKeyDown = e => {
+        if(!isNaN(e.target.value)){
+            dispatch({ type: 'SET_WEIGHT', payload: parseInt(e.target.value) })
+            // And clear out the text input
+            setWrittenWeight(0)
+        }
+    };
     // dispatch({type: 'SET_WEIGHT', payload: weight})
 
     return(
@@ -21,7 +33,14 @@ const Home = (props) => {
             <h3> Home page </h3>
             <h5> Store weight: {storeWeight}</h5>
             {/*<h5> Global weight: {props.globalWeight}</h5>*/}
-            {/*<button className='btn' onClick={store.dispatch({type: 'SET_WEIGHT', payload: 10})}> Weight up</button>*/}
+            {/*<button className='btn' onClick={dispatch({type: 'SET_WEIGHT', payload: 10})}> Weight up</button>*/}
+            {/*<button className='btn' onClick={()=>onSetWeight}> Weight up</button>*/}
+            <input
+                type="number"
+                value={writtenWeight}
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+            />
             <Link to='/block1'>
                 <button className='btn'>Block 1</button>
             </Link>
