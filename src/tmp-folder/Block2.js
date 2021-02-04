@@ -6,6 +6,11 @@ import Week from './Week';
 * TODO:
 *  Input from user must be checked after a delay so for dual-digit reps are not calculated twice:
 *  Example: 12 will be first 1 then 12 => results in wrong calculation
+*
+* TODO:
+*  Button at the bottom of the week to set global state weight and change color of button for week
+*   also should remove the 'submit' button at the end of the week after it has been submitted
+*
 * */
 
 const Block2 = () => {

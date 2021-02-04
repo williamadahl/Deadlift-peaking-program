@@ -1,6 +1,7 @@
-import {Link} from 'react-router-dom';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import React from "react";
+// import store from '../store/store'
 
 const Home = (props) => {
 
@@ -8,7 +9,7 @@ const Home = (props) => {
         <>
             <h3> Home page </h3>
             <h5> Global weight: {props.globalWeight}</h5>
-            <button className='btn' onClick={props.onSetWeight}> Weight up</button>
+            {/*<button className='btn' onClick={store.dispatch({type: 'SET_WEIGHT', payload: 10})}> Weight up</button>*/}
             <Link to='/block1'>
                 <button className='btn'>Block 1</button>
             </Link>
@@ -39,7 +40,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        onSetWeight: () => dispatch({type:'SET_WEIGHT', value:2})
+        onSetWeight: () => dispatch({type:'SET_WEIGHT', payload:2})
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

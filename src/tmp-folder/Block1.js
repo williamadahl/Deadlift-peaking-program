@@ -11,7 +11,7 @@ const calculateWeight = (percentile,weight) => {
 
 const Block1 = (props) => {
 
-    const someWeight = useState(200);
+    const [someWeight] = useState(200);
     const [exercises] = useState(data[0]);
     const [showWeekOne, setShowWeekOne] = useState(false);
     const [showWeekTwo, setShowWeekTwo] = useState(false);
@@ -60,7 +60,7 @@ const Block1 = (props) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return{
-        onSetWeight: () => dispatch({type:'SET_WEIGHT', value: 200})
+        onSetWeight: () => dispatch({type:'SET_WEIGHT', payload: 5})
     }
 }
 

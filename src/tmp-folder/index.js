@@ -9,16 +9,16 @@ import Block2 from './Block2';
 import Block3 from './Block3';
 import Block4 from './Block4';
 import Home from './Home';
+import store from '../store/store'
 
 import {Provider} from 'react-redux'
 import {createStore} from "redux";
-import reducer from '../store/reducer'
+import reducer from '../store/reducer.js'
 
-const store = createStore(reducer);
+// const store = createStore(reducer);
 
 const Index = () =>{
     console.log(store.getState())
-
     return (
         <Provider store={store}>
         <>
