@@ -2,13 +2,25 @@ import {BrowserRouter as Router, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import React from "react";
 // import store from '../store/store'
+import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
+import store from "../store/store";
+
 
 const Home = (props) => {
+    const weight = 20;
+    const dispatch = useDispatch()
+    const someShit = state => state.globalWeight;
+
+    const storeWeight = useSelector(someShit)
+
+    // dispatch({type: 'SET_WEIGHT', payload: weight})
 
     return(
         <>
             <h3> Home page </h3>
-            <h5> Global weight: {props.globalWeight}</h5>
+            <h5> Store weight: {storeWeight}</h5>
+            {/*<h5> Global weight: {props.globalWeight}</h5>*/}
             {/*<button className='btn' onClick={store.dispatch({type: 'SET_WEIGHT', payload: 10})}> Weight up</button>*/}
             <Link to='/block1'>
                 <button className='btn'>Block 1</button>
@@ -34,13 +46,14 @@ const Home = (props) => {
 
     )
 };
-const mapStateToProps = (state) => ({
-    globalWeight: state.globalWeight
-})
+// const mapStateToProps = (state) => ({
+//     globalWeight: state.globalWeight
+// })
 
-const mapDispatchToProps = (dispatch) => {
-    return{
-        onSetWeight: () => dispatch({type:'SET_WEIGHT', payload:2})
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+// const mapDispatchToProps = (dispatch) => {
+//     return{
+//         onSetWeight: () => dispatch({type:'SET_WEIGHT', payload:2})
+//     }
+// }
+export default Home;
+// connect(mapStateToProps, mapDispatchToProps)(Home);

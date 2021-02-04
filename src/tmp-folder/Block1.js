@@ -24,9 +24,9 @@ const Block1 = (props) => {
     return(
         <>
             <h1> Block 1 </h1>
-            <h5> Global weight: {props.globalWeight}</h5>
+            {/*<h5> Global weight: {props.globalWeight}</h5>*/}
             <h4> Reps managed {repNumber}</h4>
-            <button className='btn' onClick={props.onSetWeight}>200 kg </button>
+            {/*<button className='btn' onClick={props.onSetWeight}>200 kg </button>*/}
             <button className='btn' onClick={()=>setShowWeekOne(!showWeekOne)}> Week 1</button>
             <button className='btn' onClick={()=>setShowWeekTwo(!showWeekTwo)}> Week 2</button>
             <button className='btn' onClick={()=>setShowWeekThree(!showWeekThree)}> Week 3</button>
@@ -58,13 +58,14 @@ const Block1 = (props) => {
 </>
     );
 };
-const mapDispatchToProps = (dispatch) => {
-    return{
-        onSetWeight: () => dispatch({type:'SET_WEIGHT', payload: 5})
-    }
-}
-
-const mapStateToProps = (state) => ({
-    globalWeight: state.globalWeight
-})
-export default connect(mapStateToProps, mapDispatchToProps)(Block1);
+// const mapDispatchToProps = (dispatch) => {
+//     return{
+//         onSetWeight: () => dispatch({type:'SET_WEIGHT', payload: 5})
+//     }
+// }
+//
+// const mapStateToProps = (state) => ({
+//     globalWeight: state.globalWeight
+// })
+// export default connect(mapStateToProps, mapDispatchToProps)(Block1);
+export default Block1;
