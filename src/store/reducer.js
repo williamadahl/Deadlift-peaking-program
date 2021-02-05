@@ -3,19 +3,18 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) =>{
+    const newState = {...state}
     switch (action.type) {
         case 'SET_WEIGHT':
-            console.log('set_weight')
-            console.log(action.payload)
-            console.log(state.globalWeight)
-            const newState = {...state}
             newState.globalWeight = action.payload
             return newState;
-                // return {...state, globalWeight: state.globalWeight + action.payload};
-        default:
-            console.log('default')
-            return state;
 
+        case 'INCREASE_WEIGHT':
+            newState.globalWeight += action.payload
+            return newState;
+
+        default:
+            return newState;
     }
 }
 export default reducer;
