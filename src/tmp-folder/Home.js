@@ -14,7 +14,7 @@ const Home = () => {
         console.log('submitted to store')
         e.preventDefault()
         dispatch({ type: 'SET_WEIGHT', payload: parseInt(writtenWeight)*0.8})
-        /* Use 80% of 1RM */
+        /* Use 80% of 1RM  can change this later*/
     }
 
     return(
