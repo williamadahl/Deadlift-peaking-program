@@ -1,20 +1,16 @@
-import {BrowserRouter as Router, Link} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import React, {useState} from "react";
-// import store from '../store/store'
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
-import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
-// import store from "../store/store";
 
 
 const Home = () => {
     const dispatch = useDispatch()
-    const someShit = state => state.globalWeight;
+    const selector = state => state.globalWeight;
+    const storeWeight = useSelector(selector)
+
 
     const [writtenWeight, setWrittenWeight] = useState('');
-
-    const storeWeight = useSelector(someShit)
 
     const handleSubmit = e => {
         console.log('submitted to store')
@@ -28,7 +24,7 @@ const Home = () => {
         <>
             <h3> Home page </h3>
             <h5> Store weight: {storeWeight}</h5>
-            <h5> You submitet : {writtenWeight}</h5>
+            <h5> You submitted : {writtenWeight}</h5>
             <form className='form' onSubmit={handleSubmit}>
                 <input
                     type="number"

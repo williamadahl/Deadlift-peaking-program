@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {data} from '../data/data'
-import {connect} from 'react-redux';
+
+import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
+import Week from "./Week";
 
 const calculateWeight = (percentile,weight) => {
     console.log(percentile, weight)
@@ -9,53 +12,68 @@ const calculateWeight = (percentile,weight) => {
     // return weightToLift/100;
 };
 
-const Block1 = (props) => {
+const Block1 = () => {
+    const dispatch = useDispatch();
+    const selector = state => state.globalWeight;
+    const globalWeight = useSelector(selector)
 
-    const [someWeight] = useState(200);
+    const [weekNumber, setWeekNumber] = useState(0);
+
     const [exercises] = useState(data[0]);
-    const [showWeekOne, setShowWeekOne] = useState(false);
-    const [showWeekTwo, setShowWeekTwo] = useState(false);
-    const [showWeekThree, setShowWeekThree] = useState(false);
-    const [showWeekFour, setShowWeekFour] = useState(false);
-    const [weight] = useState(250); // Remember to update this weight to be 80% of input
     const [repNumber, setRepNumber] = useState(5);
-    console.log(weight);
 
     return(
         <>
             <h1> Block 1 </h1>
-            {/*<h5> Global weight: {props.globalWeight}</h5>*/}
+            <h5> Store weight: {globalWeight}</h5>
             <h4> Reps managed {repNumber}</h4>
-            {/*<button className='btn' onClick={props.onSetWeight}>200 kg </button>*/}
-            <button className='btn' onClick={()=>setShowWeekOne(!showWeekOne)}> Week 1</button>
-            <button className='btn' onClick={()=>setShowWeekTwo(!showWeekTwo)}> Week 2</button>
-            <button className='btn' onClick={()=>setShowWeekThree(!showWeekThree)}> Week 3</button>
-            <button className='btn' onClick={()=>setShowWeekFour(!showWeekFour)}> Week 4</button>
-            {showWeekOne && <>
-                <h2>Week 1</h2>
-            {exercises.map((exercise) => {
-                const {id, fields} = exercise;
-                return (
-                <div key = {id} className='item'>
-                <h4>{fields.name}</h4>
-                <p>Sets/Reps: {fields.sets} x {fields.reps}</p>
-                    <p>Weight: {calculateWeight(fields.percentile, weight)}</p>
-                </div>
-                );
-            })}
-            <form className='form'>
-                <div className='form-control'>
-                    <label htmlFor='repNumber'>Enter number of reps: </label>
-                        <input
-                            type='number'
-                            value={repNumber}
-                            onChange={(e) => setRepNumber(parseInt(e.target.value))}
-                        />
-                </div>
-            </form>
-            </>
+            <button className='btn' onClick={()=>setWeekNumber(1)}> Week 1</button>
+            <button className='btn' onClick={()=>setWeekNumber(2)}> Week 2</button>
+            <button className='btn' onClick={()=>setWeekNumber(3)}> Week 3</button>
+            <button className='btn' onClick={()=>setWeekNumber(4)}>Week 4</button>
+
+            { (weekNumber === 1)   &&
+            <Week
+                getNumberOfReps={getNumberOfReps}
+                exercises={exercises}
+                initialWeight={initialWeight}
+                weekNumber={weekNumber}
+                targetReps={targetReps}
+                repsOverTargetLastWeek={repsOverTargetLastWeek}
+            />
             }
-</>
+            { (weekNumber === 2) &&
+            <Week
+                getNumberOfReps={getNumberOfReps}
+                exercises={exercises}
+                initialWeight={initialWeight}
+                weekNumber={weekNumber}
+                targetReps={targetReps}
+                repsOverTargetLastWeek={repsOverTargetLastWeek}
+            />
+            }
+            { (weekNumber === 3) &&
+            <Week
+                getNumberOfReps={getNumberOfReps}
+                exercises={exercises}
+                initialWeight={initialWeight}
+                weekNumber={weekNumber}
+                targetReps={targetReps}
+                repsOverTargetLastWeek={repsOverTargetLastWeek}
+            />
+            }
+
+            {(weekNumber === 4) &&
+            <Week
+                getNumberOfReps={getNumberOfReps}
+                exercises={exercises}
+                initialWeight={initialWeight}
+                weekNumber={weekNumber}
+                targetReps={targetReps}
+                repsOverTargetLastWeek={repsOverTargetLastWeek}
+            />
+            }
+            </>
     );
 };
 // const mapDispatchToProps = (dispatch) => {

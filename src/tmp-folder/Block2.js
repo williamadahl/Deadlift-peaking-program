@@ -47,7 +47,6 @@ const Block2 = () => {
             <button className='btn' onClick={()=>setWeekNumber(2)}> Week 2</button>
             <button className='btn' onClick={()=>setWeekNumber(3)}> Week 3</button>
             <button className='btn' onClick={()=>setWeekNumber(4)}>Week 4</button>
-
             { (weekNumber === 1)   &&
             <Week
                 getNumberOfReps={getNumberOfReps}
@@ -78,7 +77,6 @@ const Block2 = () => {
                 repsOverTargetLastWeek={repsOverTargetLastWeek}
                 />
             }
-
             { (weekNumber === 4) &&
             <Week
                 getNumberOfReps={getNumberOfReps}
@@ -89,9 +87,6 @@ const Block2 = () => {
                 repsOverTargetLastWeek={repsOverTargetLastWeek}
             />
             }
-
-
-
         </>
 
     )
