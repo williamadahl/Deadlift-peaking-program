@@ -8,16 +8,13 @@ const Home = () => {
     const dispatch = useDispatch()
     const selector = state => state.globalWeight;
     const storeWeight = useSelector(selector)
-
-
     const [writtenWeight, setWrittenWeight] = useState('');
 
     const handleSubmit = e => {
         console.log('submitted to store')
         e.preventDefault()
-        dispatch({ type: 'SET_WEIGHT', payload: parseInt(writtenWeight) })
-
-
+        dispatch({ type: 'SET_WEIGHT', payload: parseInt(writtenWeight)*0.8})
+        /* Use 80% of 1RM */
     }
 
     return(
