@@ -17,8 +17,22 @@ const Home = (props) => {
 
     const storeWeight = useSelector(someShit)
 
-    const handleChange = e => setWrittenWeight(e.target.value)
 
+    const handleChange = e => {
+        const re = /^[0-9\b]+$/;
+        if (e.target.value === '' || re.test(e.target.value)) {
+            setWrittenWeight(e.target.value);
+            // this.setState({number: e.target.value})
+        }
+    }
+
+    const handleSubmit = e => {
+        console.log('submitted to store')
+        e.preventDefault()
+        dispatch({ type: 'SET_WEIGHT', payload: parseInt(writtenWeight) })
+
+
+    }
     const handleKeyDown = e => {
         if(!isNaN(e.target.value)){
             dispatch({ type: 'SET_WEIGHT', payload: parseInt(e.target.value) })
@@ -32,15 +46,19 @@ const Home = (props) => {
         <>
             <h3> Home page </h3>
             <h5> Store weight: {storeWeight}</h5>
+            <h5> You submitet : {writtenWeight}</h5>
             {/*<h5> Global weight: {props.globalWeight}</h5>*/}
             {/*<button className='btn' onClick={dispatch({type: 'SET_WEIGHT', payload: 10})}> Weight up</button>*/}
             {/*<button className='btn' onClick={()=>onSetWeight}> Weight up</button>*/}
-            <input
-                type="number"
-                value={writtenWeight}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-            />
+            <form className='form' onSubmit={handleSubmit}>
+                <input
+                    type="number"
+                    value={writtenWeight}
+                    onChange={(e) => setWrittenWeight(e.target.value)}
+                    // onKeyDown={handleKeyDown}
+               />
+               <button type='submit'>Submit Weight</button>
+            </form>
             <Link to='/block1'>
                 <button className='btn'>Block 1</button>
             </Link>

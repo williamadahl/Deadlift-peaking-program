@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) =>{
             console.log(action.payload)
             console.log(state.globalWeight)
             const newState = {...state}
-            newState.globalWeight += action.payload
+            newState.globalWeight = action.payload
             return newState;
                 // return {...state, globalWeight: state.globalWeight + action.payload};
         default:
