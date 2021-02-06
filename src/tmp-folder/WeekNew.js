@@ -12,6 +12,9 @@ const calculateNextWeeksWeight = (targetReps, achievedReps, weightIncrease) =>{
     return (((achievedReps+1) - targetReps) * weightIncrease)
 
 }
+/** TODO add checkmark for each week / block completed ++ add some feedback on the completed tasks
+ *
+ */
 
 
 const WeekNew = (props) => {
@@ -21,10 +24,13 @@ const WeekNew = (props) => {
     const weightIncreasePerRepOverTarget = 2.5;
     const [repsAchieved, setRepsAchieved] = useState('');
 
+
     const handleSubmit = (e) => {
-        const nextWeeksWeightIncrease = calculateNextWeeksWeight(props.targetReps, parseInt(repsAchieved), weightIncreasePerRepOverTarget)
-        dispatch({type: 'INCREASE_WEIGHT', payload: parseFloat(nextWeeksWeightIncrease)})
-        e.preventDefault()
+            const nextWeeksWeightIncrease = calculateNextWeeksWeight(props.targetReps, parseInt(repsAchieved), weightIncreasePerRepOverTarget)
+            dispatch({type: 'INCREASE_WEIGHT', payload: parseFloat(nextWeeksWeightIncrease)})
+            // props.handleCloseWeek;
+            props.handleCloseWeek();
+            e.preventDefault()
     }
 
     return (
@@ -36,7 +42,7 @@ const WeekNew = (props) => {
                     <div key = {id} className='item'>
                         <h4>{fields.name}</h4>
                         <p>Sets/Reps: {fields.sets} x {fields.reps}</p>
-                        <p>Weight: {calculateWeight(fields.percentile, globalWeight)}</p>
+                        <p>Weight: {calculateWeight(fields.percentile, globalWeight)} kg</p>
                     </div>
                 );
             })}
@@ -46,8 +52,9 @@ const WeekNew = (props) => {
                     type="number"
                     value={repsAchieved}
                     onChange={(e) => setRepsAchieved(e.target.value)}
+                    required
                 />
-                <button type='submit'>Submit Reps</button>
+                <button type='submit'>Submit & Close</button>
             </form>
         </>
     )

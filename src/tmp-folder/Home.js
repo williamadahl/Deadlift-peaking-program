@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 import React, {useState} from "react";
+import Modal from './Modal';
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 
@@ -10,17 +11,22 @@ const Home = () => {
     const storeWeight = useSelector(selector)
     const [writtenWeight, setWrittenWeight] = useState('');
 
+    const [showModal, setShowModal] = useState(false)
+
+
     const handleSubmit = e => {
         console.log('submitted to store')
         e.preventDefault()
-        dispatch({ type: 'SET_WEIGHT', payload: parseInt(writtenWeight)*0.8})
         /* Use 80% of 1RM  can change this later*/
+        dispatch({ type: 'SET_WEIGHT', payload: parseInt(writtenWeight)*0.8})
     }
 
     return(
-        <>
+           <>
             <h3> Home page </h3>
-            <h5> Store weight: {storeWeight}</h5>
+
+               <h5> Store weight: {storeWeight}</h5>
+
             <h5> You submitted : {writtenWeight}</h5>
             <form className='form' onSubmit={handleSubmit}>
                 <input

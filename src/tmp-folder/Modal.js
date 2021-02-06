@@ -1,13 +1,15 @@
-import React from 'react';
 
-const Modal = ({modalContent}) => {
+const Modal = ({handleClose,show, children}) => {
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
 
     return (
         <>
-            <div className='modal'>
-                <p>{modalContent}</p>
+            <div className={showHideClassName}>
+                {children}
+                <button className='btn' onClick={handleClose}> Close </button>
             </div>
         </>
     );
-}
+};
+
 export default Modal;

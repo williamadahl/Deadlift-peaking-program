@@ -8,18 +8,24 @@ import WeekNew from "./WeekNew";
 const calculateWeight = (percentile,weight) => {
     console.log(percentile, weight)
     return (percentile*weight) /100;
-    // const weightToLift = exercise * weight;
-    // return weightToLift/100;
 };
 
 const Block1 = () => {
     const dispatch = useDispatch();
     const selector = state => state.globalWeight;
     const globalWeight = useSelector(selector)
-
+    const [hideWeek1, setHideWeek1] = useState(false);
+    const [hideWeek2, setHideWeek2] = useState(false);
+    const [hideWeek3, setHideWeek3] = useState(false);
+    const [hideWeek4, setHideWeek4] = useState(false);
     const [weekNumber, setWeekNumber] = useState(0);
     const [targetReps] = useState(5);
     const [exercises] = useState(data[0]);
+
+    const handleCloseWeek = (e) =>{
+        console.log('retuned from child')
+        setHideWeek1(true);
+    }
 
     return(
         <>
@@ -30,7 +36,32 @@ const Block1 = () => {
             <button className='btn' onClick={()=>setWeekNumber(3)}> Week 3</button>
             <button className='btn' onClick={()=>setWeekNumber(4)}>Week 4</button>
 
-            { (weekNumber === 1)   &&
+            { ((weekNumber === 1) && !hideWeek1)   &&
+            <WeekNew
+                exercises={exercises}
+                globalWeight={globalWeight}
+                weekNumber={weekNumber}
+                targetReps={targetReps}
+                handleCloseWeek={handleCloseWeek}
+            />
+            }
+            { (weekNumber === 2 && !hideWeek2)   &&
+            <WeekNew
+                exercises={exercises}
+                globalWeight={globalWeight}
+                weekNumber={weekNumber}
+                targetReps={targetReps}
+            />
+            }
+            { (weekNumber === 3 && !hideWeek3)   &&
+            <WeekNew
+                exercises={exercises}
+                globalWeight={globalWeight}
+                weekNumber={weekNumber}
+                targetReps={targetReps}
+            />
+            }
+            { (weekNumber === 4 && !hideWeek4)   &&
             <WeekNew
                 exercises={exercises}
                 globalWeight={globalWeight}
@@ -41,14 +72,4 @@ const Block1 = () => {
             </>
     );
 };
-// const mapDispatchToProps = (dispatch) => {
-//     return{
-//         onSetWeight: () => dispatch({type:'SET_WEIGHT', payload: 5})
-//     }
-// }
-//
-// const mapStateToProps = (state) => ({
-//     globalWeight: state.globalWeight
-// })
-// export default connect(mapStateToProps, mapDispatchToProps)(Block1);
 export default Block1;
