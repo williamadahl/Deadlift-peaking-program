@@ -1,9 +1,10 @@
 const initialState = {
-    globalWeight: 69
+    globalWeight: parseFloat(69, 2)
 };
 
 const reducer = (state = initialState, action) =>{
     const newState = {...state}
+    console.log('Recieved value: ' + action.payload)
     switch (action.type) {
         case 'SET_WEIGHT':
             newState.globalWeight = action.payload

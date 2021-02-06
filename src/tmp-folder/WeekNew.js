@@ -7,6 +7,12 @@ const calculateWeight = (percentile,weight) => {
     return (percentile*weight) /100;
 };
 
+const calculateNextWeeksWeight = (targetReps, achievedReps, weightIncrease) =>{
+    /* For reaching target reps you also are credited 2.5 kg increase for the next week*/
+    return (((achievedReps+1) - targetReps) * weightIncrease)
+
+}
+
 
 const WeekNew = (props) => {
     const dispatch = useDispatch();
@@ -15,11 +21,9 @@ const WeekNew = (props) => {
     const weightIncreasePerRepOverTarget = 2.5;
     const [repsAchieved, setRepsAchieved] = useState('');
 
-    // const baseWeight = props.initialWeight + (weightIncreasePerRepOverTarget*props.repsOverTargetLastWeek)
-    /* used for calculating 'new max' */
     const handleSubmit = (e) => {
-        console.log('Reps achieved:'+ repsAchieved)
-        console.log('Target reps:'+ props.targetReps)
+        const nextWeeksWeightIncrease = calculateNextWeeksWeight(props.targetReps, parseInt(repsAchieved), weightIncreasePerRepOverTarget)
+        dispatch({type: 'INCREASE_WEIGHT', payload: parseFloat(nextWeeksWeightIncrease)})
         e.preventDefault()
     }
 
