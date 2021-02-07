@@ -1,5 +1,5 @@
 const initialState = {
-    globalWeight: parseFloat(69, 2),
+    globalWeight: parseFloat(69),
     initialWeight: parseInt(0),
     newAchievedMax: parseInt(0)
 };
