@@ -17,7 +17,7 @@ const Block3 = () => {
 
     return(
         <>
-            <h1> Block 2 </h1>
+            <h1> Block 3 </h1>
             <h5> Store weight: {globalWeight}</h5>
             <button className='btn' onClick={()=>setWeekNumber(1)}> Week 1</button>
             <button className='btn' onClick={()=>setWeekNumber(2)}> Week 2</button>

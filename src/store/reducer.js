@@ -1,5 +1,7 @@
 const initialState = {
-    globalWeight: parseFloat(69, 2)
+    globalWeight: parseFloat(69, 2),
+    initialWeight: parseInt(0),
+    newAchievedMax: parseInt(0)
 };
 
 const reducer = (state = initialState, action) =>{
