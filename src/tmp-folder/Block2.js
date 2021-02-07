@@ -1,94 +1,66 @@
 import React, {useState} from 'react';
 import {data} from '../data/data'
-import Week from './Week';
-
-/*
-* TODO:
-*  Input from user must be checked after a delay so for dual-digit reps are not calculated twice:
-*  Example: 12 will be first 1 then 12 => results in wrong calculation
-*
-* TODO:
-*  Button at the bottom of the week to set global state weight and change color of button for week
-*   also should remove the 'submit' button at the end of the week after it has been submitted
-*
-* */
+import {useSelector} from "react-redux";
+import WeekNew from "./WeekNew";
 
 const Block2 = () => {
 
+    const selector = state => state.globalWeight;
+    const globalWeight = useSelector(selector)
+    const [hideWeek1, setHideWeek1] = useState(false);
+    const [hideWeek2, setHideWeek2] = useState(false);
+    const [hideWeek3, setHideWeek3] = useState(false);
+    const [hideWeek4, setHideWeek4] = useState(false);
     const [weekNumber, setWeekNumber] = useState(0);
-    const [exercises] = useState(data[1]);
-    const [initialWeight, setInitialWeight] = useState(250);
-    const weightIncreasePerRepOverTarget = 2.5;
-
-    const [repsOverTargetLastWeek, setRepsOverTargetLastWeek] = useState(0);
     const [targetReps] = useState(3);
-
-    const getNumberOfReps = (value) =>{
-        if(!isNaN(value)){
-            console.log('Recieved value: ' + value)
-            const repDifference = (value-targetReps)
-            setRepsOverTargetLastWeek(repDifference);
-            console.log('Parent got number ov reps over: ' + repDifference);
-            /* If you reach target weight, you add 2.5 kg as well */
-            if (repDifference === 0){
-                setInitialWeight(initialWeight+2.5);
-            }else {
-                const newInitialWeight = (initialWeight + (repDifference*weightIncreasePerRepOverTarget));
-                setInitialWeight(newInitialWeight);
-            }
-        }
-    }
+    const [exercises] = useState(data[1]);
 
     return(
         <>
             <h1> Block 2 </h1>
-            <h4> Tarjet reps : {targetReps} </h4>
+            <h5> Store weight: {globalWeight}</h5>
             <button className='btn' onClick={()=>setWeekNumber(1)}> Week 1</button>
             <button className='btn' onClick={()=>setWeekNumber(2)}> Week 2</button>
             <button className='btn' onClick={()=>setWeekNumber(3)}> Week 3</button>
             <button className='btn' onClick={()=>setWeekNumber(4)}>Week 4</button>
-            { (weekNumber === 1)   &&
-            <Week
-                getNumberOfReps={getNumberOfReps}
+
+            { (weekNumber === 1 && !hideWeek1)   &&
+            <WeekNew
                 exercises={exercises}
-                initialWeight={initialWeight}
+                globalWeight={globalWeight}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
-                repsOverTargetLastWeek={repsOverTargetLastWeek}
+                handleCloseWeek={()=>setHideWeek1(true)}
             />
             }
-            { (weekNumber === 2) &&
-            <Week
-                getNumberOfReps={getNumberOfReps}
+            { (weekNumber === 2 && !hideWeek2)   &&
+            <WeekNew
                 exercises={exercises}
-                initialWeight={initialWeight}
+                globalWeight={globalWeight}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
-                repsOverTargetLastWeek={repsOverTargetLastWeek}
+                handleCloseWeek={()=>setHideWeek2(true)}
             />
             }
-            { (weekNumber === 3) &&
-                <Week
-                getNumberOfReps={getNumberOfReps}
+            { (weekNumber === 3 && !hideWeek3)   &&
+            <WeekNew
                 exercises={exercises}
-                initialWeight={initialWeight}
+                globalWeight={globalWeight}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
-                repsOverTargetLastWeek={repsOverTargetLastWeek}
-                />
+                handleCloseWeek={()=> setHideWeek3(true)}
+            />
             }
-            { (weekNumber === 4) &&
-            <Week
-                getNumberOfReps={getNumberOfReps}
+            { (weekNumber === 4 && !hideWeek4)   &&
+            <WeekNew
                 exercises={exercises}
-                initialWeight={initialWeight}
+                globalWeight={globalWeight}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
-                repsOverTargetLastWeek={repsOverTargetLastWeek}
+                handleCloseWeek={() => setHideWeek4(true)}
             />
             }
         </>
-
-    )
+    );
 };
 export default Block2;

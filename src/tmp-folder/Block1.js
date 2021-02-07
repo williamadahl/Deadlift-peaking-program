@@ -1,19 +1,10 @@
 import React, {useState} from 'react';
 import {data} from '../data/data'
-
-import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 import WeekNew from "./WeekNew";
 
-const calculateWeight = (percentile,weight) => {
-    console.log(percentile, weight)
-    return (percentile*weight) /100;
-};
-
 const Block1 = () => {
 
-
-    const dispatch = useDispatch();
     const selector = state => state.globalWeight;
     const globalWeight = useSelector(selector)
     const [hideWeek1, setHideWeek1] = useState(false);
@@ -23,12 +14,6 @@ const Block1 = () => {
     const [weekNumber, setWeekNumber] = useState(0);
     const [targetReps] = useState(5);
     const [exercises] = useState(data[0]);
-
-
-    // const handleCloseWeek = (e) =>{
-    //     console.log('retuned from child')
-    //     setHideWeek1(true);
-    // }
 
     return(
         <>
