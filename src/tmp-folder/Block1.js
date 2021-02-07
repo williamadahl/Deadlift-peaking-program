@@ -11,6 +11,8 @@ const calculateWeight = (percentile,weight) => {
 };
 
 const Block1 = () => {
+
+
     const dispatch = useDispatch();
     const selector = state => state.globalWeight;
     const globalWeight = useSelector(selector)
@@ -22,10 +24,11 @@ const Block1 = () => {
     const [targetReps] = useState(5);
     const [exercises] = useState(data[0]);
 
-    const handleCloseWeek = (e) =>{
-        console.log('retuned from child')
-        setHideWeek1(true);
-    }
+
+    // const handleCloseWeek = (e) =>{
+    //     console.log('retuned from child')
+    //     setHideWeek1(true);
+    // }
 
     return(
         <>
@@ -36,13 +39,13 @@ const Block1 = () => {
             <button className='btn' onClick={()=>setWeekNumber(3)}> Week 3</button>
             <button className='btn' onClick={()=>setWeekNumber(4)}>Week 4</button>
 
-            { ((weekNumber === 1) && !hideWeek1)   &&
+            { (weekNumber === 1 && !hideWeek1)   &&
             <WeekNew
                 exercises={exercises}
                 globalWeight={globalWeight}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
-                handleCloseWeek={handleCloseWeek}
+                handleCloseWeek={()=>setHideWeek1(true)}
             />
             }
             { (weekNumber === 2 && !hideWeek2)   &&
@@ -51,6 +54,7 @@ const Block1 = () => {
                 globalWeight={globalWeight}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
+                handleCloseWeek={()=>setHideWeek2(true)}
             />
             }
             { (weekNumber === 3 && !hideWeek3)   &&
@@ -59,6 +63,7 @@ const Block1 = () => {
                 globalWeight={globalWeight}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
+                handleCloseWeek={()=> setHideWeek3(true)}
             />
             }
             { (weekNumber === 4 && !hideWeek4)   &&
@@ -67,6 +72,7 @@ const Block1 = () => {
                 globalWeight={globalWeight}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
+                handleCloseWeek={() => setHideWeek4(true)}
             />
             }
             </>
