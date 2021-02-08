@@ -18,6 +18,9 @@ const reducer = (state = initialState, action) =>{
             newState.calculatedTrainingMax += action.payload
             return newState;
 
+        case 'SET_NEW_MAX':
+            newState.newAchievedMax = action.payload
+            return newState
         default:
             return newState;
     }
