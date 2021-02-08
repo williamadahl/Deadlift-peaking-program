@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {data} from '../data/data'
 import {useSelector} from "react-redux";
-import WeekNew from "./WeekNew";
+import Week from "./Week";
 
 const Block1 = () => {
 
@@ -25,7 +25,7 @@ const Block1 = () => {
             <button className='btn' onClick={()=>setWeekNumber(4)}>Week 4</button>
 
             { (weekNumber === 1 && !hideWeek1)   &&
-            <WeekNew
+            <Week
                 exercises={exercises}
                 calculatedTrainingMax={calculatedTrainingMax}
                 weekNumber={weekNumber}
@@ -34,7 +34,7 @@ const Block1 = () => {
             />
             }
             { (weekNumber === 2 && !hideWeek2)   &&
-            <WeekNew
+            <Week
                 exercises={exercises}
                 calculatedTrainingMax={calculatedTrainingMax}
                 weekNumber={weekNumber}
@@ -43,7 +43,7 @@ const Block1 = () => {
             />
             }
             { (weekNumber === 3 && !hideWeek3)   &&
-            <WeekNew
+            <Week
                 exercises={exercises}
                 calculatedTrainingMax={calculatedTrainingMax}
                 weekNumber={weekNumber}
@@ -52,7 +52,7 @@ const Block1 = () => {
             />
             }
             { (weekNumber === 4 && !hideWeek4)   &&
-            <WeekNew
+            <Week
                 exercises={exercises}
                 calculatedTrainingMax={calculatedTrainingMax}
                 weekNumber={weekNumber}

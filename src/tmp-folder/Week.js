@@ -17,7 +17,7 @@ const calculateNextWeeksWeight = (targetReps, achievedReps, weightIncrease) =>{
  */
 
 
-const WeekNew = (props) => {
+const Week = (props) => {
     const dispatch = useDispatch();
     const selector = state => state.calculatedTrainingMax;
     const calculatedTrainingMax = useSelector(selector)
@@ -59,4 +59,4 @@ const WeekNew = (props) => {
         </>
     )
 }
-export default WeekNew;
+export default Week;
