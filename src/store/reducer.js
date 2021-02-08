@@ -1,7 +1,7 @@
 const initialState = {
-    globalWeight: parseFloat(69),
-    initialWeight: parseInt(0),
-    newAchievedMax: parseInt(0)
+    calculatedTrainingMax: 0,
+    initialWeight: 0,
+    newAchievedMax: 0
 };
 
 const reducer = (state = initialState, action) =>{
@@ -9,11 +9,13 @@ const reducer = (state = initialState, action) =>{
     console.log('Recieved value: ' + action.payload)
     switch (action.type) {
         case 'SET_WEIGHT':
-            newState.globalWeight = action.payload
+            const inputWeight = parseInt(action.payload)
+            newState.initialWeight = inputWeight
+            newState.calculatedTrainingMax = inputWeight*0.8
             return newState;
 
         case 'INCREASE_WEIGHT':
-            newState.globalWeight += action.payload
+            newState.calculatedTrainingMax += action.payload
             return newState;
 
         default:

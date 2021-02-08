@@ -19,8 +19,8 @@ const calculateNextWeeksWeight = (targetReps, achievedReps, weightIncrease) =>{
 
 const WeekNew = (props) => {
     const dispatch = useDispatch();
-    const selector = state => state.globalWeight;
-    const globalWeight = useSelector(selector)
+    const selector = state => state.calculatedTrainingMax;
+    const calculatedTrainingMax = useSelector(selector)
     const weightIncreasePerRepOverTarget = 2.5;
     const [repsAchieved, setRepsAchieved] = useState('');
 
@@ -42,7 +42,7 @@ const WeekNew = (props) => {
                     <div key = {id} className='item'>
                         <h4>{fields.name}</h4>
                         <p>Sets/Reps: {fields.sets} x {fields.reps}</p>
-                        <p>Weight: {calculateWeight(fields.percentile, globalWeight)} kg</p>
+                        <p>Weight: {calculateWeight(fields.percentile, calculatedTrainingMax)} kg</p>
                     </div>
                 );
             })}

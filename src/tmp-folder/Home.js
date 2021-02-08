@@ -7,8 +7,10 @@ import {useSelector} from "react-redux";
 
 const Home = () => {
     const dispatch = useDispatch()
-    const selector = state => state.globalWeight;
-    const storeWeight = useSelector(selector)
+    const selectGlobalWeight = state => state.calculatedTrainingMax;
+    const selectSubmitted1RM = state => state.initialWeight;
+    const workingWeight = useSelector(selectGlobalWeight)
+    const submitted1RM = useSelector(selectSubmitted1RM )
     const [writtenWeight, setWrittenWeight] = useState('');
 
     const [showModal, setShowModal] = useState(false)
@@ -16,18 +18,15 @@ const Home = () => {
 
     const handleSubmit = e => {
         console.log('submitted to store')
+        dispatch({ type: 'SET_WEIGHT', payload: writtenWeight})
         e.preventDefault()
-        /* Use 80% of 1RM  can change this later*/
-        dispatch({ type: 'SET_WEIGHT', payload: parseInt(writtenWeight)*0.8})
     }
 
     return(
            <>
             <h3> Home page </h3>
-
-               <h5> Store weight: {storeWeight}</h5>
-
-            <h5> You submitted : {writtenWeight}</h5>
+                <h5> You submitted : {submitted1RM}</h5>
+               <h5>Calculated training weight :{workingWeight}</h5>
             <form className='form' onSubmit={handleSubmit}>
                 <input
                     type="number"

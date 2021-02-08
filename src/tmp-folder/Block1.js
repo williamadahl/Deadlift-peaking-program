@@ -5,8 +5,8 @@ import WeekNew from "./WeekNew";
 
 const Block1 = () => {
 
-    const selector = state => state.globalWeight;
-    const globalWeight = useSelector(selector)
+    const selector = state => state.calculatedTrainingMax;
+    const calculatedTrainingMax = useSelector(selector)
     const [hideWeek1, setHideWeek1] = useState(false);
     const [hideWeek2, setHideWeek2] = useState(false);
     const [hideWeek3, setHideWeek3] = useState(false);
@@ -18,7 +18,7 @@ const Block1 = () => {
     return(
         <>
             <h1> Block 1 </h1>
-            <h5> Store weight: {globalWeight}</h5>
+            <h5> Store weight: {calculatedTrainingMax}</h5>
             <button className='btn' onClick={()=>setWeekNumber(1)}> Week 1</button>
             <button className='btn' onClick={()=>setWeekNumber(2)}> Week 2</button>
             <button className='btn' onClick={()=>setWeekNumber(3)}> Week 3</button>
@@ -27,7 +27,7 @@ const Block1 = () => {
             { (weekNumber === 1 && !hideWeek1)   &&
             <WeekNew
                 exercises={exercises}
-                globalWeight={globalWeight}
+                calculatedTrainingMax={calculatedTrainingMax}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
                 handleCloseWeek={()=>setHideWeek1(true)}
@@ -36,7 +36,7 @@ const Block1 = () => {
             { (weekNumber === 2 && !hideWeek2)   &&
             <WeekNew
                 exercises={exercises}
-                globalWeight={globalWeight}
+                calculatedTrainingMax={calculatedTrainingMax}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
                 handleCloseWeek={()=>setHideWeek2(true)}
@@ -45,7 +45,7 @@ const Block1 = () => {
             { (weekNumber === 3 && !hideWeek3)   &&
             <WeekNew
                 exercises={exercises}
-                globalWeight={globalWeight}
+                calculatedTrainingMax={calculatedTrainingMax}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
                 handleCloseWeek={()=> setHideWeek3(true)}
@@ -54,7 +54,7 @@ const Block1 = () => {
             { (weekNumber === 4 && !hideWeek4)   &&
             <WeekNew
                 exercises={exercises}
-                globalWeight={globalWeight}
+                calculatedTrainingMax={calculatedTrainingMax}
                 weekNumber={weekNumber}
                 targetReps={targetReps}
                 handleCloseWeek={() => setHideWeek4(true)}
