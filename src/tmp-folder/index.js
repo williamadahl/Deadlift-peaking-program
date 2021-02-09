@@ -36,7 +36,7 @@ const Index = () =>{
                     <Route path='/block4'>
                         <Block4/>
                     </Route>
-                    <Route path ='results'>
+                    <Route path ='/results'>
                         <Results/>
                     </Route>
                 </Switch>
