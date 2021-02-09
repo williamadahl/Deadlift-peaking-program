@@ -9,13 +9,10 @@ import Block2 from './Block2';
 import Block3 from './Block3';
 import Block4 from './Block4';
 import Home from './Home';
-import store from '../store/store'
+import Results from './Results';
 
+import store from '../store/store';
 import {Provider} from 'react-redux'
-import {createStore} from "redux";
-import reducer from '../store/reducer.js'
-
-// const store = createStore(reducer);
 
 const Index = () =>{
     console.log(store.getState())
@@ -38,6 +35,9 @@ const Index = () =>{
                     </Route>
                     <Route path='/block4'>
                         <Block4/>
+                    </Route>
+                    <Route path ='results'>
+                        <Results/>
                     </Route>
                 </Switch>
             <Navbar/>
