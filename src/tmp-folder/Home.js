@@ -47,6 +47,9 @@ const Home = () => {
             <Link to='/block4'>
                 <button className='btn'>Block 4</button>
             </Link>
+               <Link to='/results'>
+                   <button className='btn'>Results </button>
+               </Link>
         </>
 
     )
