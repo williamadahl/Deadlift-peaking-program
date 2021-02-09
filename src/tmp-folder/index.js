@@ -27,16 +27,16 @@ const Index = () =>{
                     <Route exact path='/block1'>
                         <Block1 />
                     </Route>
-                    <Route path='/block2'>
+                    <Route exact path='/block2'>
                         <Block2/>
                     </Route>
-                    <Route path='/block3'>
+                    <Route exact path='/block3'>
                         <Block3/>
                     </Route>
-                    <Route path='/block4'>
+                    <Route exact path='/block4'>
                         <Block4/>
                     </Route>
-                    <Route path ='/results'>
+                    <Route exact path ='/results'>
                         <Results/>
                     </Route>
                 </Switch>
