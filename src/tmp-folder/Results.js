@@ -19,6 +19,7 @@ const Results = () => {
             <h3> Congratulations on completing this peaking program</h3>
             <h5>Previous best: {previousMax}</h5>
             <h5>New best: {newMax}</h5>
+            <h5>That is an increase of: {newMax-previousMax}</h5>
         </>
     )
 }
