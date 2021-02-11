@@ -21,11 +21,13 @@ const Block4 = () => {
 
     const handleSubmit = (e) => {
         dispatch({type:'SET_NEW_MAX', payload:submittedMax})
+        setShowWorkout(false)
+        setShowResults(true)
         e.preventDefault()
     }
-    useEffect(()=>{
-        WorkoutComponent();
-    },[handleSubmit]);
+    // useEffect(()=>{
+    //     ResultsComponent();
+    // },[handleSubmit]);
 
     const WorkoutComponent = () => {
         console.log('rendered workout')
@@ -59,17 +61,17 @@ const Block4 = () => {
         return (
             <>
                 <h3> Congratulations on completing this peaking program</h3>
-                {/*<h5>Previous best: {previousMax}</h5>*/}
-                {/*<h5>New best: {achievedMax}</h5>*/}
-                {/*<h5>That is an increase of: {achievedMax-previousMax}</h5>*/}
+                <h5>Previous best: {previousMax}</h5>
+                <h5>New best: {achievedMax}</h5>
+                <h5>That is an increase of: {achievedMax-previousMax}</h5>
             </>
         )
     }
 
     return (
         <>
-            {/*{<ResultsComponent/>}*/}
-            <WorkoutComponent/>
+            { showResults && <ResultsComponent/>}
+            {  showWorkout && <WorkoutComponent/>}
         </>
 
     )
