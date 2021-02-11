@@ -9,7 +9,6 @@ import Block2 from './Block2';
 import Block3 from './Block3';
 import Block4 from './Block4';
 import Home from './Home';
-import Results from './Results';
 
 import store from '../store/store';
 import {Provider} from 'react-redux'
@@ -35,9 +34,6 @@ const Index = () =>{
                     </Route>
                     <Route exact path='/block4'>
                         <Block4/>
-                    </Route>
-                    <Route exact path ='/results'>
-                        <Results/>
                     </Route>
                 </Switch>
             <Navbar/>

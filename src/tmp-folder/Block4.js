@@ -20,10 +20,10 @@ const Block4 = () => {
     const [showResults, setShowResults] = useState(false);
 
     const handleSubmit = (e) => {
-        dispatch({type:'SET_NEW_MAX', payload:submittedMax})
+        e.preventDefault()
+        dispatch({type:'SET_NEW_MAX', payload:parseFloat(submittedMax)})
         setShowWorkout(false)
         setShowResults(true)
-        e.preventDefault()
     }
     // useEffect(()=>{
     //     ResultsComponent();
