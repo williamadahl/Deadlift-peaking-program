@@ -1,14 +1,11 @@
+import React from 'react'
+import {Button} from 'react-bootstrap'
 
-const Modal = ({handleClose,show, children}) => {
-    const showHideClassName = show ? "modal display-block" : "modal display-none";
-
-    return (
+const Modal = () => {
+    return(
         <>
-            <div className={showHideClassName}>
-                {children}
-                <button className='btn' onClick={handleClose}> Close </button>
-            </div>
-        </>
+            <Button>Modal Button</Button>
+            </>
     );
 };
 

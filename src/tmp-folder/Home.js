@@ -13,7 +13,7 @@ const Home = () => {
     const submitted1RM = useSelector(selectSubmitted1RM )
     const [writtenWeight, setWrittenWeight] = useState('');
 
-    const [showModal, setShowModal] = useState(false)
+    // const [showModal, setShowModal] = useState(false)
 
 
     const handleSubmit = e => {
@@ -25,6 +25,7 @@ const Home = () => {
     return(
            <>
             <h3> Home page </h3>
+               <Modal/>
                 <h5> You submitted : {submitted1RM}</h5>
                <h5>Calculated training weight :{workingWeight}</h5>
             <form className='form' onSubmit={handleSubmit}>

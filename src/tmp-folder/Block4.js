@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {data} from '../data/data';
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
@@ -25,9 +25,6 @@ const Block4 = () => {
         setShowWorkout(false)
         setShowResults(true)
     }
-    // useEffect(()=>{
-    //     ResultsComponent();
-    // },[handleSubmit]);
 
     const WorkoutComponent = () => {
         console.log('rendered workout')
