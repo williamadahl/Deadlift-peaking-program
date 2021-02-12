@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import React, {useState} from "react";
-import Modal from './Modal';
+import InitialModal from './Modal';
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 
@@ -23,11 +23,11 @@ const Home = () => {
     }
 
     return(
-           <>
+        <>
             <h3> Home page </h3>
-               <Modal/>
                 <h5> You submitted : {submitted1RM}</h5>
                <h5>Calculated training weight :{workingWeight}</h5>
+            <InitialModal/>
             <form className='form' onSubmit={handleSubmit}>
                 <input
                     type="number"
