@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import React, {useState} from "react";
-import InitialModal from './Modal';
+import {modalContent} from '../data/modalContent'
+import InfoModal from './Modal';
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 
@@ -9,9 +10,12 @@ const Home = () => {
     const dispatch = useDispatch()
     const selectGlobalWeight = state => state.calculatedTrainingMax;
     const selectSubmitted1RM = state => state.initialWeight;
+    const selectShowHomeModal = state => state.showHomeModal
     const workingWeight = useSelector(selectGlobalWeight)
     const submitted1RM = useSelector(selectSubmitted1RM )
+    const showHomeModal = useSelector(selectShowHomeModal)
     const [writtenWeight, setWrittenWeight] = useState('');
+    const [myModalData] = useState(modalContent[0]);
 
     // const [showModal, setShowModal] = useState(false)
 
@@ -27,7 +31,10 @@ const Home = () => {
             <h3> Home page </h3>
                 <h5> You submitted : {submitted1RM}</h5>
                <h5>Calculated training weight :{workingWeight}</h5>
-            <InitialModal/>
+            <InfoModal
+                modalContent={myModalData}
+                showModal={showHomeModal}
+            />
             <form className='form' onSubmit={handleSubmit}>
                 <input
                     type="number"

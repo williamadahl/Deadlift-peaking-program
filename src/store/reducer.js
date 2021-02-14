@@ -1,7 +1,8 @@
 const initialState = {
     calculatedTrainingMax: 0,
     initialWeight: 0,
-    newAchievedMax: 0
+    newAchievedMax: 0,
+    showHomeModal:false
 };
 
 const reducer = (state = initialState, action) =>{
@@ -21,6 +22,8 @@ const reducer = (state = initialState, action) =>{
         case 'SET_NEW_MAX':
             newState.newAchievedMax = action.payload
             return newState
+        case 'SET_SHOW_HOME_MODAL':
+            newState.showHomeModal = action.payload
         default:
             return newState;
     }
