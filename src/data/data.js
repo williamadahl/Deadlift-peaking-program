@@ -13,7 +13,7 @@ export const data = [
             name: 'Deadlift warmup',
             sets: 5,
             reps: 5,
-            percentile: 0
+            percentile: 85
         }
     },
     {
@@ -49,7 +49,7 @@ export const data = [
             name: 'Close-grip pulldowns',
             sets: 3,
             reps: 10,
-            percentile: 0
+            percentile: 35
         }
     },
     {
@@ -58,7 +58,7 @@ export const data = [
             name: 'Reverse fly',
             sets: 3,
             reps: 12,
-            percentile: 0
+            percentile: 5
         }
     },
     {
@@ -67,7 +67,7 @@ export const data = [
             name: 'Single-arm row',
             sets: 3,
             reps: 12,
-            percentile: 0
+            percentile: 20
         }
     },
     {
@@ -76,7 +76,7 @@ export const data = [
             name: 'Smith shrug',
             sets: 3,
             reps: 12,
-            percentile: 0
+            percentile: 40
         }
     }
 ],
@@ -87,7 +87,7 @@ export const data = [
             name: 'Deadlift warmup',
             sets: 5,
             reps: 3,
-            percentile: 0
+            percentile: 85
         }
     },
     {
@@ -123,7 +123,7 @@ export const data = [
             name: 'Close-grip pulldowns',
             sets: 2,
             reps: 10,
-            percentile: 0
+            percentile: 35
         }
     },
     {
@@ -132,7 +132,7 @@ export const data = [
             name: 'Smith shrug',
             sets: 2,
             reps: 10,
-            percentile: 0
+            percentile: 40
         }
     }
 ],
@@ -143,7 +143,7 @@ export const data = [
                 name: 'Deadlift warmup',
                 sets: 5,
                 reps: 2,
-                percentile: 0
+                percentile: 85
             }
         },
         {

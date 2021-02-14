@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {Button, Modal} from 'react-bootstrap'
 
 const InitialModal = () => {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return(
@@ -58,6 +58,10 @@ const InitialModal = () => {
                     your peak will last at least one more week, so you can try again the week after. Good luck,
                     and stay hard!
 
+                    After you have completed these twelve weeks I highly suggest a week off training before you
+                    go into a hypertrophy phase where you work on any weaknesses you might have. You absolutely
+                    CANNOT go back-to-back peaking your 1RM. Doing so will, in a best case scenario, only lead to
+                    stagnation, but most likely in injury. Train hard but also train smart!
 
                 </p>
                 <Modal.Body>

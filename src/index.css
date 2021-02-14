@@ -209,7 +209,7 @@ p {
 
 .modal p {
   margin-bottom: 0;
-  color: var(--clr-red-dark);
+  /*color: var(--clr-red-dark);*/
 }
 .form {
   background: var(--clr-white);
