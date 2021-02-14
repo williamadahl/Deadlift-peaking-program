@@ -204,7 +204,7 @@ p {
   display: inline-block;
   padding: 0.25rem 1rem;
   border-radius: var(--radius);
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 
 .modal p {
