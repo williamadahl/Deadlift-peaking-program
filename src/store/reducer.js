@@ -2,7 +2,7 @@ const initialState = {
     calculatedTrainingMax: 0,
     initialWeight: 0,
     newAchievedMax: 0,
-    showHomeModal:false
+    showHomeModal:true
 };
 
 const reducer = (state = initialState, action) =>{

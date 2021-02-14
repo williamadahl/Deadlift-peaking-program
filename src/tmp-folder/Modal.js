@@ -1,16 +1,18 @@
 import React,{useState} from 'react'
 import {Button, Modal} from 'react-bootstrap'
+import {useDispatch} from "react-redux";
 
 const InfoModal = (props) => {
+    const dispatch = useDispatch();
     const [show, setShow] = useState(props.showModal);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleClose = () => {
+        dispatch({type: 'SET_SHOW_HOME_MODAL', payload: false})
+        setShow(false); // Might be a bit redundant, can change this later?
+    }
     return(
         <>
             <Modal
                 style={{'maxHeight': 'calc(100vh - 210px)', 'overflowY': 'auto'}}
-                /*{...props} can use this to send properties to modal*/
-                // style={{'overflowY': 'auto', 'maxHeight': 'calc(200vh - 200px)'}}
                 scrollable={true}
                 show={show}
                 onHide={handleClose}
