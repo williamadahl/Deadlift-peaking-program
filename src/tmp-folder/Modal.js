@@ -6,7 +6,7 @@ const InfoModal = (props) => {
     const dispatch = useDispatch();
     const [show, setShow] = useState(props.showModal);
     const handleClose = () => {
-        dispatch({type: 'SET_SHOW_HOME_MODAL', payload: false})
+        dispatch({type:props.dispatchCode, payload: false})
         setShow(false); // Might be a bit redundant, can change this later?
     }
     return(
@@ -25,7 +25,8 @@ const InfoModal = (props) => {
                     {props.modalContent}
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleClose}>
+                    <Button
+                        onClick={handleClose}>
                         Close
                     </Button>
                 </Modal.Footer>

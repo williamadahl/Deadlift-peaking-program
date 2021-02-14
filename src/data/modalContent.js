@@ -1,5 +1,5 @@
 export const modalContent = [
-    'The program consists of three training blocks, consisting of four, and three weeks each,\n' +
+    'The program is build around three training blocks, consisting of four, and three weeks each,\n' +
     '                       and one final week where you will try to beat your previous best. Each week has one workout\n' +
     '                       session. If you want to do two deadlift sessions each week, keep 72 hours in between them\n' +
     '                       and keep the second workout low volume and opt to work on technique and speed of the floor.\n' +

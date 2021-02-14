@@ -9,15 +9,13 @@ import {useSelector} from "react-redux";
 const Home = () => {
     const dispatch = useDispatch()
     const selectGlobalWeight = state => state.calculatedTrainingMax;
-    const selectSubmitted1RM = state => state.initialWeight;
-    const selectShowHomeModal = state => state.showHomeModal
     const workingWeight = useSelector(selectGlobalWeight)
+    const selectSubmitted1RM = state => state.initialWeight;
     const submitted1RM = useSelector(selectSubmitted1RM )
+    const selectShowHomeModal = state => state.showHomeModal
     const showHomeModal = useSelector(selectShowHomeModal)
     const [writtenWeight, setWrittenWeight] = useState('');
     const [myModalData] = useState(modalContent[0]);
-
-    // const [showModal, setShowModal] = useState(false)
 
 
     const handleSubmit = e => {
@@ -34,6 +32,7 @@ const Home = () => {
             <InfoModal
                 modalContent={myModalData}
                 showModal={showHomeModal}
+                dispatchCode={'SET_SHOW_HOME_MODAL'}
             />
             <form className='form' onSubmit={handleSubmit}>
                 <input
@@ -53,7 +52,7 @@ const Home = () => {
                 <button className='btn'>Block 3</button>
             </Link>
             <Link to='/block4'>
-                <button className='btn'>Block 4</button>
+                <button className='btn'>Max Attempt</button>
             </Link>
         </>
 
