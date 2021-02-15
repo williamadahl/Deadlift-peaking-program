@@ -2,20 +2,22 @@ import React, {useState} from 'react';
 import {data} from '../data/data';
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
+import InfoModal from "./Modal";
+import {modalContent} from "../data/modalContent";
 
 
 const Block4 = () => {
     const dispatch = useDispatch();
-    /* New achieved max*/
     const selectNewMax = state => state.newAchievedMax;
     const achievedMax = useSelector(selectNewMax);
-    /* Previous best */
     const selectPreviousMax = state => state.initialWeight;
     const previousMax = useSelector(selectPreviousMax);
-
+    const selectShowBlock4Modal = state => state.showBlock4Modal;
+    const showBlock4Modal = useSelector(selectShowBlock4Modal);
     const [exercises] = useState(data[3]);
-    const [submittedMax, setSubmittedMax] = useState('');
+    const [myModalData] = useState(modalContent[4])
 
+    const [submittedMax, setSubmittedMax] = useState('');
     const [showWorkout, setShowWorkout] = useState(true);
     const [showResults, setShowResults] = useState(false);
 
@@ -67,6 +69,11 @@ const Block4 = () => {
 
     return (
         <>
+            <InfoModal
+                modalContent={myModalData}
+                showModal={showBlock4Modal}
+                dispatchCode={'SET_SHOW_BLOCK4_MODAL'}
+            />
             { showResults && <ResultsComponent/>}
             {  showWorkout && <WorkoutComponent/>}
         </>
