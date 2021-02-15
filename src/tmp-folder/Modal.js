@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Button, Modal} from 'react-bootstrap'
+import {Modal} from 'react-bootstrap'
 import {useDispatch, useSelector} from "react-redux";
 
 const InfoModal = (props) => {
@@ -51,10 +51,10 @@ const InfoModal = (props) => {
                     }
                 </Modal.Body>
                     {!submitWeight &&
-                    <Button
+                    <button className='btn'
                         onClick={handleSubmit}>
                         Close
-                    </Button>
+                    </button>
                     }
             </Modal>
         </>

@@ -31,8 +31,7 @@ const Block4 = () => {
         console.log('rendered workout')
             return (
                 <>
-                    <h1> Max attempt</h1>
-                    <h5>This is achieved max :{achievedMax}</h5>
+                    <h2> Max attempt!</h2>
                     {exercises.map((exercise) => {
                         const {id, fields} = exercise;
                         return (

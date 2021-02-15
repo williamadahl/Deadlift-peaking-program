@@ -30,7 +30,6 @@ const Block2 = () => {
                 showModal={showBlock2Modal}
                 dispatchCode={'SET_SHOW_BLOCK2_MODAL'}
             />
-            <h5> Store weight: {calculatedTrainingMax}</h5>
             <button className='btn' onClick={()=>setWeekNumber(1)}> Week 1</button>
             <button className='btn' onClick={()=>setWeekNumber(2)}> Week 2</button>
             <button className='btn' onClick={()=>setWeekNumber(3)}> Week 3</button>

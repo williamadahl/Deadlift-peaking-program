@@ -27,7 +27,7 @@ const Home = () => {
 
     return(
         <>
-            <h3> Home page </h3>
+            <h2> Home page </h2>
                 <h5> You submitted : {submitted1RM}</h5>
                <h5>Calculated training weight :{workingWeight}</h5>
             <InfoModal
@@ -37,14 +37,6 @@ const Home = () => {
                 showModal={showHomeModal}
                 dispatchCode={'SET_SHOW_HOME_MODAL'}
             />
-            <form className='form' onSubmit={handleSubmit}>
-                <input
-                    type="number"
-                    value={writtenWeight}
-                    onChange={(e) => setWrittenWeight(e.target.value)}
-               />
-               <button type='submit'>Submit Weight</button>
-            </form>
             <Link to='/block1'>
                 <button className='btn'>Block 1</button>
             </Link>

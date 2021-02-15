@@ -1,5 +1,5 @@
 const initialState = {
-    calculatedTrainingMax: 0,
+    calculatedTrainingMax: 0.0,
     initialWeight: 0,
     newAchievedMax: 0,
     showHomeModal:true,
