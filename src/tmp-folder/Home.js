@@ -4,7 +4,7 @@ import {modalContent} from '../data/modalContent'
 import InfoModal from './Modal';
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
-import SubmitModal from "./SubmitModal";
+import Modal from "./Modal";
 
 
 const Home = () => {
@@ -30,11 +30,11 @@ const Home = () => {
             <h3> Home page </h3>
                 <h5> You submitted : {submitted1RM}</h5>
                <h5>Calculated training weight :{workingWeight}</h5>
-            <SubmitModal
+            <InfoModal
                 modalContent={myModalData}
                 showModal={showHomeModal}
                 dispatchCode={'SET_SHOW_HOME_MODAL'}
-                submitWeight={false}
+                submitWeight={true}
             />
             <form className='form' onSubmit={handleSubmit}>
                 <input
