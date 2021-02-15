@@ -3,7 +3,7 @@ export const modalContent = [
     '                       and one final week where you will try to beat your previous best. Each week has one workout\n' +
     '                       session. If you want to do two deadlift sessions each week, keep 72 hours in between them\n' +
     '                       and keep the second workout low volume and opt to work on technique and speed of the floor.\n' +
-    '                       Before you start using the program you will submit your previous 1RM on the deadlift.\n' +
+    '                       Before you start using the program you will submit your previous 1RM on the deadlift in the field below.\n' +
     '                       It is important that you are honest and use a recent 1RM. Not your previous best from a year ago.\n' +
     '                       Your previous best will be used to calculate a starting weight for you to work on.\n' +
     '                       The program follows a progressive overload model where you log your rep count\n' +

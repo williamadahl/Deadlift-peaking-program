@@ -16,7 +16,6 @@ const Block4 = () => {
     const showBlock4Modal = useSelector(selectShowBlock4Modal);
     const [exercises] = useState(data[3]);
     const [myModalData] = useState(modalContent[4])
-
     const [submittedMax, setSubmittedMax] = useState('');
     const [showWorkout, setShowWorkout] = useState(true);
     const [showResults, setShowResults] = useState(false);
@@ -62,7 +61,7 @@ const Block4 = () => {
                 <h3> Congratulations on completing this peaking program</h3>
                 <h5>Previous best: {previousMax}</h5>
                 <h5>New best: {achievedMax}</h5>
-                <h5>That is an increase of: {achievedMax-previousMax}</h5>
+                <h5>That is an increase of: {achievedMax-previousMax} kg! Well done!</h5>
             </>
         )
     }
