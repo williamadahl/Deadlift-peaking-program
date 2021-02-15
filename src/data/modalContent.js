@@ -30,11 +30,10 @@ export const modalContent = [
     '                       it over to high intensity. Every rep, including reaching the target, will increase next weeks weights\n' +
     '                       with 2.5kg.',
     'Week 12: This is it, all your hard work has come to this one lift. Do a good warmup and work\n' +
-    '                       your way up with singles jumping ~10% at the time. If you have a bad day, no worries,\n' +
-    '                       your peak will last at least one more week, so you can try again the week after. Good luck,\n' +
-    '                       and stay hard!',
-    'After you have completed these twelve weeks I highly suggest a week off training before you\n' +
+    '                       your way up with singles jumping ~10% at the time. After you have completed these twelve weeks I highly suggest a week off training before you\n' +
     '                       go into a hypertrophy phase where you work on any weaknesses you might have. You absolutely\n' +
     '                       CANNOT go back-to-back peaking your 1RM. Doing so will, in a best case scenario, only lead to\n' +
-    '                       stagnation, but most likely in injury. Train hard but also train smart!'
+    '                       stagnation, but most likely in injury. Train hard but also train smart! If you have a bad day, no worries,\n' +
+'                       your peak will last at least one more week, so you can try again the week after. Good luck,\n' +
+'                       and stay hard!'
 ]
