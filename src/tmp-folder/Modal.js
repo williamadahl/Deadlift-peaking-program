@@ -4,8 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 
 const InfoModal = (props) => {
     const dispatch = useDispatch();
-    const selectSubmitted1RM = state => state.initialWeight;
-    const submitted1RM = useSelector(selectSubmitted1RM )
     const [show, setShow] = useState(props.showModal);
     const [submitWeight] = useState(props.submitWeight);
     const [writtenWeight, setWrittenWeight] = useState('');
@@ -30,7 +28,7 @@ const InfoModal = (props) => {
     return(
         <>
             <Modal
-                style={{'maxHeight': 'calc(100vh - 210px)', 'overflowY': 'auto'}}
+                style={{'maxHeight': 'calc(100vh - 210px)', 'overflowY': 'auto', 'minHeight':'350px'}}
                 scrollable={true}
                 show={show}
                 onHide={handleClose}
@@ -38,7 +36,7 @@ const InfoModal = (props) => {
                 keyboard={false}
                 animation={false}
             >
-                <h3>Welcome to this 12 week deadlift peaking program</h3>
+                <h3>{props.header}</h3>
                 <Modal.Body>
                     {props.modalContent}
                     {submitWeight &&
@@ -50,17 +48,14 @@ const InfoModal = (props) => {
                             />
                             <button type='submit' >Submit current 1RM</button>
                         </form>
-
                     }
                 </Modal.Body>
-                <Modal.Footer>
                     {!submitWeight &&
                     <Button
                         onClick={handleSubmit}>
                         Close
                     </Button>
                     }
-                </Modal.Footer>
             </Modal>
         </>
     );

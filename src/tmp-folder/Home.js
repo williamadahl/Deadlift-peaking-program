@@ -31,10 +31,11 @@ const Home = () => {
                 <h5> You submitted : {submitted1RM}</h5>
                <h5>Calculated training weight :{workingWeight}</h5>
             <InfoModal
+                header={'Welcome to this 12 week deadlift peaking program!'}
+                submitWeight={true}
                 modalContent={myModalData}
                 showModal={showHomeModal}
                 dispatchCode={'SET_SHOW_HOME_MODAL'}
-                submitWeight={true}
             />
             <form className='form' onSubmit={handleSubmit}>
                 <input

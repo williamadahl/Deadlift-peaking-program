@@ -62,6 +62,10 @@ const Block4 = () => {
                 <h5>Previous best: {previousMax}</h5>
                 <h5>New best: {achievedMax}</h5>
                 <h5>That is an increase of: {achievedMax-previousMax} kg! Well done!</h5>
+                <p> After you have completed these twelve weeks I highly suggest a week off training before you
+                    go into a hypertrophy phase where you work on any weaknesses you might have. You absolutely
+                    CANNOT go back-to-back peaking your 1RM. Doing so will, in a best case scenario, only lead to
+                    stagnation, but most likely in injury. Train hard but also train smart!</p>
             </>
         )
     }
@@ -69,6 +73,8 @@ const Block4 = () => {
     return (
         <>
             <InfoModal
+                header={'Max attempt'}
+                submitWeight={false}
                 modalContent={myModalData}
                 showModal={showBlock4Modal}
                 dispatchCode={'SET_SHOW_BLOCK4_MODAL'}

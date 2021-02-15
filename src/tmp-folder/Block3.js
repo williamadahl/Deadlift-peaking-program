@@ -24,6 +24,8 @@ const Block3 = () => {
         <>
             <h1> Block 3 </h1>
             <InfoModal
+                header={'Block 3'}
+                submitWeight={false}
                 modalContent={myModalData}
                 showModal={showBlock3Modal}
                 dispatchCode={'SET_SHOW_BLOCK3_MODAL'}
