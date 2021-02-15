@@ -2,11 +2,15 @@ import React, {useState} from 'react';
 import {data} from '../data/data'
 import {useSelector} from "react-redux";
 import Week from "./Week";
+import InfoModal from "./Modal";
+import {modalContent} from "../data/modalContent";
 
 const Block2 = () => {
 
-    const selector = state => state.calculatedTrainingMax;
-    const calculatedTrainingMax = useSelector(selector)
+    const selectCalculatedTrainingMax = state => state.calculatedTrainingMax;
+    const calculatedTrainingMax = useSelector(selectCalculatedTrainingMax);
+    const selectShowBlock2Modal = state => state.showBlock2Modal;
+    const showBlock2Modal = useSelector(selectShowBlock2Modal);
     const [hideWeek1, setHideWeek1] = useState(false);
     const [hideWeek2, setHideWeek2] = useState(false);
     const [hideWeek3, setHideWeek3] = useState(false);
@@ -14,10 +18,16 @@ const Block2 = () => {
     const [weekNumber, setWeekNumber] = useState(0);
     const [targetReps] = useState(3);
     const [exercises] = useState(data[1]);
+    const [myModalData] = useState(modalContent[2])
 
     return(
         <>
             <h1> Block 2 </h1>
+            <InfoModal
+                modalContent={myModalData}
+                showModal={showBlock2Modal}
+                dispatchCode={'SET_SHOW_BLOCK2_MODAL'}
+            />
             <h5> Store weight: {calculatedTrainingMax}</h5>
             <button className='btn' onClick={()=>setWeekNumber(1)}> Week 1</button>
             <button className='btn' onClick={()=>setWeekNumber(2)}> Week 2</button>

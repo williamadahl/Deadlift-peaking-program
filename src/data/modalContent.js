@@ -21,13 +21,14 @@ export const modalContent = [
     ' Block two: In this block we start dropping down volume a bit and up the intensity. Your target\n' +
     '                       reps will be between three to six reps on your top-set, and we cut two accessory exercises and\n' +
     '                       the number of sets on the remaining ones.Every rep, including reaching the target, will\n' +
-    '                       increase next weeks weights with ',
+    '                       increase next weeks weights with 2.5kg.',
     'Block three: This is the peaking phase and it is make or break for most athletes. Either you\n' +
     '                       will get a lot stronger or a lot weaker. It is crucial that you DROP the volume and follow the\n' +
     '                       program as it is laid out. Trust the process! All non-essential volume is dropped and the intensity\n' +
     '                       is amped up once again. This last couple of weeks, you only preform the deadlift during your workout.\n' +
     '                       Remember, this is why we stared out with a high volume, so that we could cut from it and transfer\n' +
-    '                       it over to high intensity.',
+    '                       it over to high intensity. Every rep, including reaching the target, will increase next weeks weights\n' +
+    '                       with 2.5kg.',
     'Week 12: This is it, all your hard work has come to this one lift. Do a good warmup and work\n' +
     '                       your way up with singles jumping ~10% at the time. If you have a bad day, no worries,\n' +
     '                       your peak will last at least one more week, so you can try again the week after. Good luck,\n' +
