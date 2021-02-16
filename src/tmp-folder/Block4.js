@@ -21,45 +21,19 @@ const Block4 = () => {
     const [showResults, setShowResults] = useState(false);
 
     const handleSubmit = (e) => {
-        e.preventDefault()
         dispatch({type:'SET_NEW_MAX', payload:parseFloat(submittedMax)})
         setShowWorkout(false)
         setShowResults(true)
+        e.preventDefault()
     }
-
-    const WorkoutComponent = () => {
-        console.log('rendered workout')
-            return (
-                <>
-                    <h2> Max attempt!</h2>
-                    {exercises.map((exercise) => {
-                        const {id, fields} = exercise;
-                        return (
-                            <div key={id} className='item'>
-                                <h4>{fields.name}</h4>
-                                <p>Sets/Reps: {fields.sets} x {fields.reps}</p>
-                            </div>
-                        )
-                    })}
-                    <form className='form' onSubmit={handleSubmit}>
-                        <input
-                            type='number'
-                            value={submittedMax}
-                            onChange={(e) => setSubmittedMax(e.target.value)}
-                        />
-                        <button type='submit'>Submit new Max</button>
-                    </form>
-                </>
-            )
-    };
 
     const ResultsComponent = () => {
         console.log('rendered results')
         return (
             <>
-                <h3> Congratulations on completing this peaking program</h3>
-                <h5>Previous best: {previousMax}</h5>
-                <h5>New best: {achievedMax}</h5>
+                <h3> Congratulations on completing this peaking program!</h3>
+                <h5>Previous best was: {previousMax}</h5>
+                <h5>New best is: {achievedMax}</h5>
                 <h5>That is an increase of: {achievedMax-previousMax} kg! Well done!</h5>
                 <p> After you have completed these twelve weeks I highly suggest a week off training before you
                     go into a hypertrophy phase where you work on any weaknesses you might have. You absolutely
@@ -78,8 +52,29 @@ const Block4 = () => {
                 showModal={showBlock4Modal}
                 dispatchCode={'SET_SHOW_BLOCK4_MODAL'}
             />
+            {  showWorkout &&
+                <>
+                    <h2> Max attempt!</h2>
+                    {exercises.map((exercise) => {
+                        const {id, fields} = exercise;
+                         return (
+                            <div key={id} className='item'>
+                            <h4>{fields.name}</h4>
+                            <p>Sets/Reps: {fields.sets} x {fields.reps}</p>
+                            </div>
+                        )
+                     })}
+                    <form className='form' onSubmit={handleSubmit}>
+                    <input
+                        type='number'
+                        value={submittedMax}
+                        onChange={(e) => setSubmittedMax(e.target.value)}
+                    />
+                    <button type='submit'>Submit new Max</button>
+                    </form>
+                </>
+            }
             { showResults && <ResultsComponent/>}
-            {  showWorkout && <WorkoutComponent/>}
         </>
 
     )
