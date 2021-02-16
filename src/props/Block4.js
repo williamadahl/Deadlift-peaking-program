@@ -28,7 +28,6 @@ const Block4 = () => {
     }
 
     const ResultsComponent = () => {
-        console.log('rendered results')
         return (
             <>
                 <h3> Congratulations on completing this peaking program!</h3>

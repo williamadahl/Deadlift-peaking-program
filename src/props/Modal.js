@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {Modal} from 'react-bootstrap'
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
 const InfoModal = (props) => {
     const dispatch = useDispatch();
@@ -14,10 +14,7 @@ const InfoModal = (props) => {
         /* For modal with submit weight true*/
         if(submitWeight){
             dispatch({ type: 'SET_WEIGHT', payload: writtenWeight})
-            console.log('pressed submit')
         /* For modal with submit weight false*/
-        }else{
-            console.log('no submit')
         }
         e.preventDefault()
     }

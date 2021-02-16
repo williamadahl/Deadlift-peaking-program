@@ -2,28 +2,17 @@ import {Link} from 'react-router-dom';
 import React, {useState} from "react";
 import {modalContent} from '../data/modalContent'
 import InfoModal from './Modal';
-import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
-import Modal from "./Modal";
 
 
 const Home = () => {
-    const dispatch = useDispatch()
     const selectGlobalWeight = state => state.calculatedTrainingMax;
     const workingWeight = useSelector(selectGlobalWeight)
     const selectSubmitted1RM = state => state.initialWeight;
     const submitted1RM = useSelector(selectSubmitted1RM )
     const selectShowHomeModal = state => state.showHomeModal
     const showHomeModal = useSelector(selectShowHomeModal)
-    const [writtenWeight, setWrittenWeight] = useState('');
     const [myModalData] = useState(modalContent[0]);
-
-
-    const handleSubmit = e => {
-        console.log('submitted to store')
-        dispatch({ type: 'SET_WEIGHT', payload: writtenWeight})
-        e.preventDefault()
-    }
 
     return(
         <>

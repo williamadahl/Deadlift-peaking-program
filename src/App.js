@@ -1,5 +1,5 @@
 import './App.css';
-import Index from "./tmp-folder";
+import Index from "./props";
 import React from 'react';
 
 function App() {
