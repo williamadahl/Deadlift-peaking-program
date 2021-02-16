@@ -14,7 +14,6 @@ import store from '../store/store';
 import {Provider} from 'react-redux'
 
 const Index = () =>{
-    console.log(store.getState())
     return (
         <Provider store={store}>
         <>

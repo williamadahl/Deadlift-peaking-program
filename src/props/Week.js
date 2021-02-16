@@ -3,7 +3,6 @@ import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 
 const calculateWeight = (percentile,weight) => {
-    console.log(percentile, weight)
     return (percentile*weight) /100;
 };
 
@@ -28,7 +27,6 @@ const Week = (props) => {
     const handleSubmit = (e) => {
             const nextWeeksWeightIncrease = calculateNextWeeksWeight(props.targetReps, parseInt(repsAchieved), weightIncreasePerRepOverTarget)
             dispatch({type: 'INCREASE_WEIGHT', payload: parseFloat(nextWeeksWeightIncrease)})
-            // props.handleCloseWeek;
             props.handleCloseWeek();
             e.preventDefault()
     }
@@ -42,7 +40,7 @@ const Week = (props) => {
                     <div key = {id} className='item'>
                         <h4>{fields.name}</h4>
                         <p>Sets/Reps: {fields.sets} x {fields.reps}</p>
-                        <p>Weight: {calculateWeight(fields.percentile, calculatedTrainingMax)} kg</p>
+                        <p>Weight: {Math.round(calculateWeight(fields.percentile, calculatedTrainingMax)*2)/2} kg</p>
                     </div>
                 );
             })}
