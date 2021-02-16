@@ -7,7 +7,8 @@ const initialState = {
     showBlock2Modal: true,
     showBlock3Modal: true,
     showBlock4Modal: true,
-    showPostPeakModal: false
+    showPostPeakModal: false,
+    repsWeekEleven: 0
 };
 
 const reducer = (state = initialState, action) =>{
@@ -42,6 +43,8 @@ const reducer = (state = initialState, action) =>{
         case 'SET_SHOW_POST_PEAK_MODAL':
             newState.showPostPeakModal = action.payload
             return newState
+        case 'SET_REPS_WEEK_ELEVEN':
+            newState.repsWeekEleven = action.payload
         default:
             return newState;
     }

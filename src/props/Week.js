@@ -2,15 +2,7 @@ import React, {useState} from 'react';
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 
-const calculateWeight = (percentile,weight) => {
-    return (percentile*weight) /100;
-};
 
-const calculateNextWeeksWeight = (targetReps, achievedReps, weightIncrease) =>{
-    /* For reaching target reps you also are credited 2.5 kg increase for the next week*/
-    return (((achievedReps+1) - targetReps) * weightIncrease)
-
-}
 /** TODO add checkmark for each week / block completed ++ add some feedback on the completed tasks
  *
  */
@@ -18,13 +10,24 @@ const calculateNextWeeksWeight = (targetReps, achievedReps, weightIncrease) =>{
 
 const Week = (props) => {
     const dispatch = useDispatch();
-    const selector = state => state.calculatedTrainingMax;
-    const calculatedTrainingMax = useSelector(selector)
+    const selectCalculatedTrainingMax = state => state.calculatedTrainingMax;
+    const calculatedTrainingMax = useSelector(selectCalculatedTrainingMax)
     const weightIncreasePerRepOverTarget = 2.5;
     const [repsAchieved, setRepsAchieved] = useState('');
 
+    const calculateWeight = (percentile,weight) => {
+        return (percentile*weight) /100;
+    };
 
+    const calculateNextWeeksWeight = (targetReps, achievedReps, weightIncrease) =>{
+        /* For reaching target reps you also are credited 2.5 kg increase for the next week*/
+        return (((achievedReps+1) - targetReps) * weightIncrease)
+
+    }
     const handleSubmit = (e) => {
+            if(props.isWeekEleven){
+                dispatch({type: 'SET_REPS_WEEK_ELEVEN', payload: repsAchieved})
+            }
             const nextWeeksWeightIncrease = calculateNextWeeksWeight(props.targetReps, parseInt(repsAchieved), weightIncreasePerRepOverTarget)
             dispatch({type: 'INCREASE_WEIGHT', payload: parseFloat(nextWeeksWeightIncrease)})
             props.handleCloseWeek();

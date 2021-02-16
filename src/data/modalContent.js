@@ -31,6 +31,7 @@ export const modalContent = [
     '                       with 2.5kg.',
     'This is it, all your hard work has come to this one lift. Do a good warmup and work\n' +
     '                       your way up with singles jumping ~10% at the time. If you have a bad day, no worries,\n' +
-    '                       your peak will last at least one more week, so you can try again the week after. Good luck,\n' +
-    '                       and stay hard!'
+    '                       your peak will last at least one more week, so you can try again the week after. Below is a' +
+    '  suggested max attempt based on your performance last week. Feel free to use this as an indicator for your' +
+    '  1 RM weight. Good luck, and stay hard!\n'
 ]

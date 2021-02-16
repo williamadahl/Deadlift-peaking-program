@@ -14,12 +14,31 @@ const Block4 = () => {
     const previousMax = useSelector(selectPreviousMax);
     const selectShowBlock4Modal = state => state.showBlock4Modal;
     const showBlock4Modal = useSelector(selectShowBlock4Modal);
+    const selectRepsWeekEleven = state => state.repsWeekEleven;
+    const numberRepsWeekEleven = useSelector(selectRepsWeekEleven);
+    const selectCalculatedTrainingMax = state => state.calculatedTrainingMax;
+    const calculatedTrainingMax = useSelector(selectCalculatedTrainingMax)
     const [exercises] = useState(data[3]);
     const [myModalData] = useState(modalContent[4])
     const [submittedMax, setSubmittedMax] = useState('');
     const [showWorkout, setShowWorkout] = useState(true);
     const [showResults, setShowResults] = useState(false);
 
+    const calculateSuggestedMax =() => {
+        const defaultOneRmSuggestion = ((calculatedTrainingMax * 100)/80)
+        switch (parseInt(numberRepsWeekEleven)) {
+            case 1:
+                return Math.round(((defaultOneRmSuggestion*100)/97.5)*2)/2
+            case 2:
+                return Math.round(((defaultOneRmSuggestion*100)/95)*2)/2
+            case 3:
+                return Math.round(((defaultOneRmSuggestion*100)/92.5)*2)/2
+            case 4:
+                return Math.round(((defaultOneRmSuggestion*100)/90)*2)/2
+            case 5:
+                return Math.round(((defaultOneRmSuggestion*100)/87.5)*2)/2
+        }
+    };
     const handleSubmit = (e) => {
         dispatch({type:'SET_NEW_MAX', payload:parseFloat(submittedMax)})
         setShowWorkout(false)
@@ -60,6 +79,7 @@ const Block4 = () => {
                             <div key={id} className='item'>
                             <h4>{fields.name}</h4>
                             <p>Sets/Reps: {fields.sets} x {fields.reps}</p>
+                            <p>Weight: {calculateSuggestedMax()} kg</p>
                             </div>
                         )
                      })}
