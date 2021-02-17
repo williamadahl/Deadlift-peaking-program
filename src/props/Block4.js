@@ -37,6 +37,8 @@ const Block4 = () => {
                 return Math.round(((defaultOneRmSuggestion*100)/90)*2)/2
             case 5:
                 return Math.round(((defaultOneRmSuggestion*100)/87.5)*2)/2
+            default:
+                return Math.round(((defaultOneRmSuggestion*100)/80.5)*2)/2
         }
     };
     const handleSubmit = (e) => {
