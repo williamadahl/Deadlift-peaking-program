@@ -25,20 +25,19 @@ const Block4 = () => {
     const [showResults, setShowResults] = useState(false);
 
     const calculateSuggestedMax =() => {
-        const defaultOneRmSuggestion = ((calculatedTrainingMax * 100)/80)
         switch (parseInt(numberRepsWeekEleven)) {
             case 1:
-                return Math.round(((defaultOneRmSuggestion*100)/97.5)*2)/2
+                return Math.round(((calculatedTrainingMax*100)/97.5)*2)/2
             case 2:
-                return Math.round(((defaultOneRmSuggestion*100)/95)*2)/2
+                return Math.round(((calculatedTrainingMax*100)/95)*2)/2
             case 3:
-                return Math.round(((defaultOneRmSuggestion*100)/92.5)*2)/2
+                return Math.round(((calculatedTrainingMax*100)/92.5)*2)/2
             case 4:
-                return Math.round(((defaultOneRmSuggestion*100)/90)*2)/2
+                return Math.round(((calculatedTrainingMax*100)/90)*2)/2
             case 5:
-                return Math.round(((defaultOneRmSuggestion*100)/87.5)*2)/2
+                return Math.round(((calculatedTrainingMax*100)/87.5)*2)/2
             default:
-                return Math.round(((defaultOneRmSuggestion*100)/80.5)*2)/2
+                return Math.round(((calculatedTrainingMax*100)/80.5)*2)/2
         }
     };
     const handleSubmit = (e) => {

@@ -23,6 +23,7 @@ const Block1 = () => {
     return(
         <>
             <h2> Block 1 </h2>
+            <h5>Calculated training max: {calculatedTrainingMax}</h5>
             <InfoModal
                 header={'Block 1'}
                 submitWeight={false}
