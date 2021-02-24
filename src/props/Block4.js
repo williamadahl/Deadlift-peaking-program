@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 import InfoModal from "./Modal";
 import {modalContent} from "../data/modalContent";
-
+/* commit to test local / global email*/
 
 const Block4 = () => {
     const dispatch = useDispatch();
