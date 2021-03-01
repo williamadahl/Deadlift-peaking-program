@@ -3,10 +3,12 @@ const initialState = {
     initialWeight: 0,
     newAchievedMax: 0,
     showHomeModal:true,
-    showBlock1Modal: true,
-    showBlock2Modal: true,
-    showBlock3Modal: true,
-    showBlock4Modal: true,
+    /* Kan fjerne disse */
+    showBlock1Modal: false,
+    showBlock2Modal: false,
+    showBlock3Modal: false,
+    showBlock4Modal: false,
+    /* Denne trenger jeg :) */
     showPostPeakModal: false,
     repsWeekEleven: 0
 };

@@ -7,6 +7,13 @@ import InfoModal from "./Modal";
 
 const Block1 = () => {
 
+    /* Local component state for weeks
+    *  Sjekk ut provider, scoped state
+    *  Mappestruktur
+    *  Containers(4) kaller  -> component (1) , (block)
+    *  Bruke proptypes [liste etc] som sendes inn til components
+    *  Kan bruke hooks i steden for states (kidndof local states)
+    * */
     const selectCalculatedTrainingMax = state => state.calculatedTrainingMax;
     const calculatedTrainingMax = useSelector(selectCalculatedTrainingMax)
     const selectShowBlock1Modal = state => state.showBlock1Modal;
